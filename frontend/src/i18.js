@@ -13,13 +13,16 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/translation.json",
     },
+    interpolation: {
+      escapeValue: false, // React already escapes values by default
+    },
     detection: {
-      order: ["queryString", "path", "cookie", "localStorage", "navigator"],
+      order: ["querystring", "cookie", "localStorage", "navigator"],
       caches: ["cookie", "localStorage"],
     },
-    interpolation: {
-      escapeValue: false,
-    },
   });
+i18n.on("languageChanged", (lng) => {
+  console.log("Language changed to:", lng);
+});
 
-export default i18n;
+export default i18n; // Ensure the default export is used here

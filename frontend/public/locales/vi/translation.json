@@ -1,7 +1,42 @@
 {
   "language": "Tiếng Việt",
   "welcome": "Chào mừng bạn!",
+  "login": "đăng nhập",
+  "register": "đăng ký",
   "landingPage": {
-    "title": "Hello world vi"
+    "sentences1": "Quản lý KPI thông minh cho mọi người",
+    "button1": "bắt đầu",
+    "button2": "xem bản demo"
+  },
+  "footer": {
+    "quickLinks": "Liên kết nhanh",
+    "home": "Trang chủ",
+    "about": "Về chúng tôi",
+    "services": "Dịch vụ",
+    "contact": "Liên hệ",
+    "contactUs": "Liên hệ với chúng tôi",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "address": "Địa chỉ",
+    "followUs": "Theo dõi chúng tôi",
+    "allRightsReserved": "Đã đăng ký bản quyền"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "name": "Tên",
+    "email": "E-mail",
+    "password": "Mật khẩu",
+    "confirm_password": "Xác nhận mật khẩu",
+    "register": "Đăng ký",
+    "sentences1": "Bạn chưa có tài khoản?",
+    "sentences2": "Bạn đã có tài khoản?"
+  },
+  "links": {
+    "home": "Bảng điều khiển",
+    "dashboard": "Bảng điều khiển",
+    "schedule": "Lịch trình",
+    "target": "Mục tiêu",
+    "statistics": "Thống kê",
+    "nutrition": "Dinh dưỡng"
   }
 }

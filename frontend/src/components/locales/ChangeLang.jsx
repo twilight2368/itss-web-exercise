@@ -63,7 +63,7 @@ export default function ChangeLang() {
   };
 
   return (
-    <div>
+    <div className="w-48">
       <FormControlLabel
         label={t("language")}
         control={

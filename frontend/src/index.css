@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Primary */
+  --primary-light: #42a5f5;
+  --primary-main: #1976d2;
+  --primary-dark: #1565c0;
+
+  /* Secondary */
+  --secondary-light: #ba68c8;
+  --secondary-main: #9c27b0;
+  --secondary-dark: #7b1fa2;
+
+  /* Error */
+  --error-light: #ef5350;
+  --error-main: #d32f2f;
+  --error-dark: #c62828;
+
+  /* Warning */
+  --warning-light: #ff9800;
+  --warning-main: #ed6c02;
+  --warning-dark: #e65100;
+
+  /* Info */
+  --info-light: #03a9f4;
+  --info-main: #0288d1;
+  --info-dark: #01579b;
+
+  /* Success */
+  --success-light: #4caf50;
+  --success-main: #2e7d32;
+  --success-dark: #1b5e20;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.vietnam {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.logo {
+  font-family: "Sofia", cursive;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--primary-light);
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.background-primary-link {
+  background-color: var(--primary-light);
+}

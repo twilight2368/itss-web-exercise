@@ -1,7 +1,42 @@
 {
   "language": "日本語",
   "welcome": "ようこそ！",
+  "login": "ログイン",
+  "register": "登録",
   "landingPage": {
-    "title": "Hello world jp"
+    "sentences1": "誰もが利用できるスマートなKPI管理",
+    "button1": "始める",
+    "button2": "デモを見る"
+  },
+  "footer": {
+    "quickLinks": "クイックリンク",
+    "home": "ホーム",
+    "about": "私たちについて",
+    "services": "サービス",
+    "contact": "お問い合わせ",
+    "contactUs": "お問い合わせ",
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "address": "住所",
+    "followUs": "フォローする",
+    "allRightsReserved": "すべての権利を保有"
+  },
+  "auth": {
+    "login": "ログイン",
+    "name": "名前",
+    "email": "メール",
+    "password": "パスワード",
+    "confirm_password": "パスワードの確認",
+    "register": "登録",
+    "sentences1": "まだアカウントをお持ちでない方は",
+    "sentences2": "既にアカウントをお持ちの方は"
+  },
+  "links": {
+    "home": "ダッシュボード",
+    "dashboard": "ダッシュボード",
+    "schedule": "スケジュール",
+    "target": "目標",
+    "statistics": "統計",
+    "nutrition": "栄養"
   }
 }
