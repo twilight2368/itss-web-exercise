@@ -1,4 +1,4 @@
-import { Button, Input, TextField } from "@mui/material";
+import { Button, Checkbox, Input, TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 import Logo from "../../components/logo/Logo";
@@ -42,6 +42,9 @@ export default function LoginPage() {
                 label={t("auth.password")}
                 variant="outlined"
               />
+              <div>
+                <Checkbox /> <span>{t("auth.remember_me")}</span>
+              </div>
               <Button variant="contained" size="large">
                 {t("auth.login")}
               </Button>

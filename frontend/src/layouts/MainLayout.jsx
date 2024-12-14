@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
 import MainSidebar from "../components/sidebar/MainSidebar";
 import MainHeader from "../components/header/MainHeader";
+import Footer from "../components/footer/Footer";
 
 export default function MainLayout() {
   const naviagte = useNavigate();
@@ -19,8 +20,11 @@ export default function MainLayout() {
         <div className=" sticky top-0 w-full h-20 z-50">
           <MainHeader />
         </div>
-        <div>
+        <div className="w-full">
           <Outlet />
+          <div className="w-full">
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

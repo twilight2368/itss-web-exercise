@@ -25,7 +25,7 @@ export default function BreadcrumbMain() {
         const isLast = index === pathnames.length - 1;
 
         return isLast ? (
-          <Typography key={to} color="black">
+          <Typography key={to} color="black" className=" before:content-['🌟']">
             {t(`links.${value}`)}
           </Typography>
         ) : (
@@ -35,6 +35,7 @@ export default function BreadcrumbMain() {
             href={to}
             onClick={(e) => handleClick(e, to)}
             key={to}
+            className=" before:content-['⭐']"
           >
             {t(`links.${value}`)}
           </Link>

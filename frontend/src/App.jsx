@@ -4,6 +4,7 @@ import LandingPage from "./pages/landing/LandingPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import MainLayout from "./layouts/MainLayout";
+import ProfilePage from "./pages/profile/ProfilePage";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
           <Route path="target" element={<>target</>} />
           <Route path="statistics" element={<>statistics</>} />
           <Route path="nutrition" element={<>nutrition</>} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="*" element={<>Not found</>} />
         </Route>
         <Route path="*" element={<>Not found</>} />

@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, Checkbox, TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 import Logo from "../../components/logo/Logo";
@@ -52,6 +52,9 @@ export default function RegisterPage() {
                 label={t("auth.confirm_password")}
                 variant="outlined"
               />
+              <div>
+                <Checkbox /> <span>{t("auth.accept_term")}</span>
+              </div>
               <Button variant="contained" size="large">
                 {t("auth.register")}
               </Button>

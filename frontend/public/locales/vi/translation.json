@@ -29,7 +29,9 @@
     "confirm_password": "Xác nhận mật khẩu",
     "register": "Đăng ký",
     "sentences1": "Bạn chưa có tài khoản?",
-    "sentences2": "Bạn đã có tài khoản?"
+    "sentences2": "Bạn đã có tài khoản?",
+    "accept_term": "Đồng ý với điều khoản sử dụng",
+    "remember_me": "Ghi nhớ đăng nhập"
   },
   "links": {
     "home": "Bảng điều khiển",
@@ -37,6 +39,23 @@
     "schedule": "Lịch trình",
     "target": "Mục tiêu",
     "statistics": "Thống kê",
-    "nutrition": "Dinh dưỡng"
+    "nutrition": "Dinh dưỡng",
+    "profile": "Hồ sơ người dùng"
+  },
+  "user_menu": {
+    "profile": "Hồ sơ",
+    "setting": "Cài đặt",
+    "logout": "Đăng xuất"
+  },
+  "profilePage": {
+    "header": "Trang hồ sơ",
+    "name": "Tên",
+    "email": "Email",
+    "birthday": "Ngày sinh",
+    "phone_number": "Số điện thoại",
+    "position": "Chức vụ",
+    "place_of_work": "Nơi làm việc",
+    "buttonChange": "Thay đổi",
+    "buttonChangeCancel": "Hủy bỏ"
   }
 }

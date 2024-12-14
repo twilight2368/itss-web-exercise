@@ -34,7 +34,7 @@ const LinkItem = ({ text, to, end }) => {
           classNames(
             "py-3 px-3 w-full text-lg rounded-md",
             isActive
-              ? "background-primary-link font-bold before:content-['🌟']"
+              ? "background-primary-link font-bold before:content-['🌟'] shadow shadow-blue-400"
               : " before:content-['⭐']"
           )
         }

@@ -29,7 +29,9 @@
     "confirm_password": "パスワードの確認",
     "register": "登録",
     "sentences1": "まだアカウントをお持ちでない方は",
-    "sentences2": "既にアカウントをお持ちの方は"
+    "sentences2": "既にアカウントをお持ちの方は",
+    "accept_term": "利用規約に同意する",
+    "remember_me": "ログイン状態を保持する"
   },
   "links": {
     "home": "ダッシュボード",
@@ -37,6 +39,23 @@
     "schedule": "スケジュール",
     "target": "目標",
     "statistics": "統計",
-    "nutrition": "栄養"
+    "nutrition": "栄養",
+    "profile": "ユーザープロフィール"
+  },
+  "user_menu": {
+    "profile": "プロフィール",
+    "setting": "設定",
+    "logout": "ログアウト"
+  },
+  "profilePage": {
+    "header": "プロフィールページ",
+    "name": "名前",
+    "email": "メール",
+    "birthday": "誕生日",
+    "phone_number": "電話番号",
+    "position": "役職",
+    "place_of_work": "勤務先",
+    "buttonChange": "変更",
+    "buttonChangeCancel": "キャンセル"
   }
 }

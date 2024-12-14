@@ -43,7 +43,7 @@ export default function LandingPage() {
               {t("landingPage.sentences1")}
             </div>
             <div className=" font-black text-6xl w-96 text-center">
-              <div className="mb-2">No regret with</div>
+              <div className="mb-4">No regret with</div>
               <div className="w-2/3 mx-auto">
                 <ColorfulBackground text={"Regress"} />
               </div>

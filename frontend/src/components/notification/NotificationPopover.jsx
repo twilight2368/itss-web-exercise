@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { LuBell } from "react-icons/lu";
-
+import { IconButton } from "@mui/material";
+import Badge from "@mui/material/Badge";
 export default function NotificationPopover() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [invisible, setInvisible] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    setInvisible(true);
   };
 
   const handleClose = () => {
@@ -20,14 +21,16 @@ export default function NotificationPopover() {
 
   return (
     <div>
-      <Button
-        aria-describedby={id}
-        variant="text"
-        size="large"
-        onClick={handleClick}
-      >
-        <LuBell className="h-6 w-6" />
-      </Button>
+      <Badge color="primary" variant="dot" invisible={invisible}>
+        <IconButton
+          aria-describedby={id}
+          variant="text"
+          size="medium"
+          onClick={handleClick}
+        >
+          <LuBell />
+        </IconButton>
+      </Badge>
       <Popover
         id={id}
         open={open}
@@ -38,7 +41,7 @@ export default function NotificationPopover() {
           horizontal: "center",
         }}
       >
-        <div className=" h-96 w-96 overflow-x-hidden overflow-y-auto">
+        <div className=" h-96 w-96 overflow-x-hidden overflow-y-auto custom-scrollbar">
           <div className="w-full min-h-screen"></div>
         </div>
       </Popover>
