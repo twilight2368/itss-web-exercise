@@ -40,7 +40,10 @@
     "target": "目標",
     "statistics": "統計",
     "nutrition": "栄養",
-    "profile": "ユーザープロフィール"
+    "profile": "ユーザープロフィール",
+    "gain_weight": "ターゲットの詳細",
+    "loss_weight": "ターゲットの詳細",
+    "health_improve": "ターゲットの詳細"
   },
   "user_menu": {
     "profile": "プロフィール",
@@ -57,5 +60,94 @@
     "place_of_work": "勤務先",
     "buttonChange": "変更",
     "buttonChangeCancel": "キャンセル"
+  },
+  "DashboardPage": {
+    "header": "ダッシュボード",
+    "badminton": "バドミントン",
+    "basketball": "バスケットボール",
+    "climbing": "クライミング",
+    "dancing": "ダンス",
+    "jumprope": "縄跳び",
+    "running": "ランニング",
+    "soccer": "サッカー",
+    "swimming": "水泳",
+    "yoga": "ヨガ",
+    "links": "今すぐスケジュールを立てる",
+    "close": "閉じる",
+    "descriptions": {
+      "badminton": "ラケットを使いシャトルを打ち合う、スピードと反射神経が重要なスポーツです。集中力と持久力を養うことができ、友人と楽しくプレイすることで健康と絆を深められます。",
+      "basketball": "チームで協力してボールをゴールに入れるスポーツです。素早い動きと戦略が求められ、体力とコミュニケーション能力を同時に向上させます。ゲームの興奮がやる気を引き出します。",
+      "climbing": "壁や岩を登るスリル満点のスポーツです。体全体の筋力と柔軟性を高め、達成感が自信を育てます。自然と一体化しながら挑戦する楽しさを味わえます。",
+      "dancing": "音楽に合わせて自由に体を動かすアートとフィットネスの融合です。創造性を刺激し、リズム感や柔軟性を鍛えると同時に、ストレス解消にも役立ちます。",
+      "jumprope": "単純ながらも効果的な心肺運動で、体力とバランスを向上させます。コンパクトな器具でどこでも行え、短時間でのエクササイズに最適です。",
+      "running": "どこでも始められる基本的なエクササイズです。心肺機能を高め、ストレスを軽減します。ゴールに向かう達成感がモチベーションを保ちます。",
+      "soccer": "世界中で愛されるチームスポーツで、協力してゴールを目指します。スキルと戦略が重要で、フィジカルとメンタルの両方を鍛えます。",
+      "swimming": "全身運動で心身を鍛え、水の中でリラックスできます。体への負担が少なく、リハビリや持久力トレーニングに最適です。",
+      "yoga": "身体の柔軟性を高め、心を穏やかにする練習です。ストレスを和らげ、日々の集中力を向上させる効果があります。"
+    },
+    "lunch_title": "ランチメニュー",
+    "dinner_title": "ディナーメニュー"
+  },
+  "schedulePage": {
+    "header": "スケジュール",
+    "import_calendar": "カレンダーをインポート",
+    "calendar": "カレンダー",
+    "create_exercise": "エクササイズを作成"
+  },
+  "notification": {
+    "exerciseDone": "あなたは運動を終えました！",
+    "exerciseScheduled": "今日は運動が予定されています。",
+    "exerciseMissed": "今日は運動を逃しました。"
+  },
+  "modalExercise": {
+    "header": "エクササイズ作成",
+    "title": "運動を選んでください",
+    "start_time": "開始時間",
+    "durations_time": "所要時間",
+    "save": "保存"
+  },
+  "targetCard": {
+    "see_detail": "詳細を見る",
+    "weight_loss": "減量",
+    "weight_gain": "体重増加",
+    "health_improvement": "健康改善",
+    "setActive": "アクティブにする",
+    "active": "アクティブ"
+  },
+  "loss_weight": {
+    "title": "減量目標を設定する",
+    "description": "減量の説明をここに書いてください...",
+    "time_start": "開始時間",
+    "time_end": "終了時間",
+    "init_weight": "初期体重 (kg)",
+    "target_end": "目標体重 (kg)",
+    "curr_weight": "現在の体重 (kg)",
+    "save": "保存"
+  },
+  "health_improve": {
+    "title": "健康改善目標を設定する",
+    "description": "健康改善の目標をここに記入してください...",
+    "time_start": "開始時間",
+    "time_end": "終了時間",
+    "save": "保存"
+  },
+  "gain_weight": {
+    "title": "体重増加目標を設定する",
+    "description": "体重増加の目標をここに記入してください...",
+    "time_start": "開始時間",
+    "time_end": "終了時間",
+    "init_weight": "初期体重",
+    "target_end": "目標体重",
+    "curr_weight": "現在の体重",
+    "save": "保存"
+  },
+  "statisticsPage": {
+    "loss_weight": "減量進捗",
+    "gain_weight": "増量進捗",
+    "health_improve": "健康改善評価",
+    "exercise_history": "運動履歴",
+    "review": "レビュー",
+    "completed": "完了",
+    "not_completed": "未完了"
   }
 }

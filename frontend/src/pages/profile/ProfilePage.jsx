@@ -15,13 +15,13 @@ export default function ProfilePage() {
           </div>
           <div className="w-1/2 pr-24 flex flex-col gap-4">
             <TextField
-              defaultValue={"2024-01-01"}
+              defaultValue={"name"}
               label={t("profilePage.name")}
               type="text"
               disabled
             />
             <TextField
-              defaultValue={"2024-01-01"}
+              defaultValue={"email"}
               label={t("profilePage.email")}
               type="text"
               disabled
@@ -33,19 +33,19 @@ export default function ProfilePage() {
               disabled
             />
             <TextField
-              defaultValue={"2024-01-01"}
+              defaultValue={"phone_number"}
               label={t("profilePage.phone_number")}
               type="text"
               disabled
             />
             <TextField
-              defaultValue={"2024-01-01"}
+              defaultValue={"position"}
               label={t("profilePage.position")}
               type="text"
               disabled
             />
             <TextField
-              defaultValue={"2024-01-01"}
+              defaultValue={"place_of_work"}
               label={t("profilePage.place_of_work")}
               type="text"
               disabled

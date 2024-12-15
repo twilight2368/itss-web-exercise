@@ -40,7 +40,10 @@
     "target": "Mục tiêu",
     "statistics": "Thống kê",
     "nutrition": "Dinh dưỡng",
-    "profile": "Hồ sơ người dùng"
+    "profile": "Hồ sơ người dùng",
+    "gain_weight": "Chi tiết mục tiêu",
+    "loss_weight": "Chi tiết mục tiêu",
+    "health_improve": "Chi tiết mục tiêu"
   },
   "user_menu": {
     "profile": "Hồ sơ",
@@ -57,5 +60,94 @@
     "place_of_work": "Nơi làm việc",
     "buttonChange": "Thay đổi",
     "buttonChangeCancel": "Hủy bỏ"
+  },
+  "DashboardPage": {
+    "header": "Bảng điều khiển",
+    "badminton": "Cầu lông",
+    "basketball": "Bóng rổ",
+    "climbing": "Leo núi",
+    "dancing": "Nhảy múa",
+    "jumprope": "Nhảy dây",
+    "running": "Chạy bộ",
+    "soccer": "Bóng đá",
+    "swimming": "Bơi lội",
+    "yoga": "Yoga",
+    "links": "Lên lịch ngay bây giờ",
+    "close": "Đóng",
+    "descriptions": {
+      "badminton": "Một môn thể thao nhanh chóng, nơi người chơi dùng vợt để đánh cầu lông qua lưới. Nó cải thiện sự phản xạ và sức bền, đồng thời là cơ hội tuyệt vời để kết nối với bạn bè.",
+      "basketball": "Một môn thể thao đồng đội, nơi các cầu thủ cố gắng đưa bóng vào rổ. Nó yêu cầu sự nhanh nhẹn, chiến thuật và giúp nâng cao kỹ năng giao tiếp cùng thể lực.",
+      "climbing": "Một môn thể thao mạo hiểm, nơi bạn leo lên những bức tường hoặc đá. Nó rèn luyện sức mạnh toàn thân, sự linh hoạt và mang lại cảm giác thành tựu tuyệt vời.",
+      "dancing": "Một sự kết hợp giữa nghệ thuật và thể dục, nơi bạn chuyển động theo nhạc. Nó kích thích sự sáng tạo, cải thiện nhịp điệu và giúp giảm căng thẳng.",
+      "jumprope": "Bài tập đơn giản nhưng hiệu quả để tăng cường tim mạch, cải thiện sức khỏe và cân bằng cơ thể. Phù hợp để luyện tập ở bất cứ đâu.",
+      "running": "Một bài tập cơ bản có thể thực hiện ở bất kỳ đâu. Nó tăng cường sức bền, cải thiện chức năng tim mạch và mang lại cảm giác thành công khi hoàn thành mục tiêu.",
+      "soccer": "Môn thể thao phổ biến trên toàn cầu, nơi các cầu thủ làm việc cùng nhau để ghi bàn. Nó rèn luyện kỹ năng, chiến thuật và cả thể chất lẫn tinh thần.",
+      "swimming": "Một bài tập toàn thân diễn ra trong nước, giúp cải thiện sức khỏe và giảm căng thẳng. Lý tưởng cho việc phục hồi chức năng và rèn luyện sức bền.",
+      "yoga": "Một thực hành giúp cải thiện sự linh hoạt của cơ thể và mang lại sự bình yên trong tâm hồn. Nó giúp giảm căng thẳng và nâng cao khả năng tập trung hàng ngày."
+    },
+    "lunch_title": "Thực đơn bữa trưa",
+    "dinner_title": "Thực đơn bữa tối"
+  },
+  "schedulePage": {
+    "header": "Lịch trình",
+    "import_calendar": "Nhập Lịch",
+    "calendar": "Lịch",
+    "create_exercise": "Tạo Bài Tập"
+  },
+  "notification": {
+    "exerciseDone": "Bạn đã hoàn thành bài tập hôm nay!",
+    "exerciseScheduled": "Hôm nay bạn có bài tập được lên lịch.",
+    "exerciseMissed": "Bạn đã bỏ lỡ bài tập hôm nay."
+  },
+  "modalExercise": {
+    "header": "Tạo Bài Tập",
+    "title": "Chọn Môn Thể Thao",
+    "start_time": "Thời Gian Bắt Đầu",
+    "durations_time": "Thời Gian",
+    "save": "Lưu"
+  },
+  "targetCard": {
+    "see_detail": "Xem Chi Tiết",
+    "weight_loss": "Giảm Cân",
+    "weight_gain": "Tăng Cân",
+    "health_improvement": "Cải Thiện Sức Khỏe",
+    "setActive": "Kích Hoạt",
+    "active": "Đang kích hoạt"
+  },
+  "loss_weight": {
+    "title": "Đặt mục tiêu giảm cân của bạn",
+    "description": "Viết mô tả về mục tiêu giảm cân của bạn ở đây...",
+    "time_start": "Thời gian bắt đầu",
+    "time_end": "Thời gian kết thúc",
+    "init_weight": "Cân nặng ban đầu (kg)",
+    "target_end": "Cân nặng mục tiêu (kg)",
+    "curr_weight": "Cân nặng hiện tại (kg)",
+    "save": "Lưu"
+  },
+  "health_improve": {
+    "title": "Đặt mục tiêu cải thiện sức khỏe của bạn",
+    "description": "Viết mục tiêu cải thiện sức khỏe của bạn ở đây...",
+    "time_start": "Thời gian bắt đầu",
+    "time_end": "Thời gian kết thúc",
+    "save": "Lưu"
+  },
+  "gain_weight": {
+    "title": "Đặt mục tiêu tăng cân của bạn",
+    "description": "Viết mục tiêu tăng cân của bạn ở đây...",
+    "time_start": "Thời gian bắt đầu",
+    "time_end": "Thời gian kết thúc",
+    "init_weight": "Cân nặng ban đầu",
+    "target_end": "Cân nặng mục tiêu",
+    "curr_weight": "Cân nặng hiện tại",
+    "save": "Lưu"
+  },
+  "statisticsPage": {
+    "loss_weight": "Tiến trình giảm cân",
+    "gain_weight": "Tiến trình tăng cân",
+    "health_improve": "Đánh giá cải thiện sức khỏe",
+    "exercise_history": "Lịch sử tập luyện",
+    "review": "Đánh giá",
+    "completed": "Đã hoàn thành",
+    "not_completed": "Chưa hoàn thành"
   }
 }

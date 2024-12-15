@@ -52,23 +52,13 @@ export default function UserMenu() {
             </div>
           </div>
           <Button
-            color="primary"
-            variant="contained"
+            color="gray"
+            variant="outlined"
             onClick={() => {
               navigate("/home/profile");
             }}
           >
             {t("user_menu.profile")}
-          </Button>
-          <Button
-            color="gray"
-            variant="outlined"
-            onClick={() => {
-              navigate("/home/settings");
-            }}
-            s
-          >
-            {t("user_menu.setting")}
           </Button>
           <Button
             color="error"

@@ -5,7 +5,7 @@ import NotificationPopover from "../notification/NotificationPopover";
 
 export default function MainHeader() {
   return (
-    <div className="w-full h-full flex justify-between items-center px-8 bg-gray-50 ">
+    <div className="w-full h-full flex justify-between items-center px-8 bg-white ">
       <div className="w-2/3">
         <BreadcrumbMain />
       </div>
