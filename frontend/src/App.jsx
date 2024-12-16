@@ -57,7 +57,7 @@ function App() {
             <Route path="profile" element={<ProfilePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
-          <Route path="*" element={<>Not found</>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

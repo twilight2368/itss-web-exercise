@@ -151,5 +151,12 @@
     "review": "Đánh giá",
     "completed": "Đã hoàn thành",
     "not_completed": "Chưa hoàn thành"
+  },
+  "NotFoundPage": "Trang không tìm thấy",
+  "foodCard": {
+    "Calories": "Calo",
+    "Protein": "Chất đạm",
+    "Fat": "Chất béo",
+    "Carb": "Tinh bột"
   }
 }

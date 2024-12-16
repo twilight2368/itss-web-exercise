@@ -151,5 +151,12 @@
     "review": "レビュー",
     "completed": "完了",
     "not_completed": "未完了"
+  },
+  "NotFoundPage": "ページが見つかりません",
+  "foodCard": {
+    "Calories": "カロリー",
+    "Protein": "タンパク質",
+    "Fat": "脂質",
+    "Carb": "炭水化物"
   }
 }

@@ -11,7 +11,8 @@ import Image8 from "../../assets/exercise/swimming.svg";
 import Image9 from "../../assets/exercise/yoga.svg";
 import Paper from "@mui/material/Paper";
 import ModalSport from "../../components/modals/ModalSport";
-
+import FoodCard from "../../components/food/FoodCard";
+import classNames from "classnames";
 const exerciseImages = [
   {
     image: Image1,
@@ -91,14 +92,26 @@ export default function DashboardPage() {
         </div>
         <div className=" w-1/2 pt-6 flex justify-center items-start">
           <Paper elevation={3} className="w-5/6 aspect-square overflow-y-auto">
-            <div className="w-full h-12 flex justify-center items-center border-b-[1px] border-purple-500 bg-purple-500/25 text-purple-600 ">
+            <div
+              className={classNames(
+                "w-full h-12 flex justify-center items-center border-b-[1px] ",
+                isLunchTime
+                  ? "border-orange-500 bg-orange-500/25 text-orange-600"
+                  : "border-purple-500 bg-purple-500/25 text-purple-600"
+              )}
+            >
               <h1>
                 {isLunchTime
                   ? t("DashboardPage.lunch_title")
                   : t("DashboardPage.dinner_title")}
               </h1>
             </div>
-            <div></div>
+            <div className="w-full pt-3 px-3 h-[500px] gap-0 grid grid-cols-2 grid-rows-2">
+              <FoodCard />
+              <FoodCard />
+              <FoodCard />
+              <FoodCard />
+            </div>
           </Paper>
         </div>
       </div>
