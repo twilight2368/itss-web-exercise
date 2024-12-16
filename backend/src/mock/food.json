@@ -1,0 +1,776 @@
+{
+  "lunch": [
+    {
+      "name": {
+        "vi": "Phở bò",
+        "ja": "牛肉のフォー"
+      },
+      "calo": 350,
+      "fat": 5,
+      "proteins": 20,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Bánh mì thịt",
+        "ja": "バインミー"
+      },
+      "calo": 400,
+      "fat": 10,
+      "proteins": 15,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Cơm tấm sườn",
+        "ja": "豚スペアリブのご飯"
+      },
+      "calo": 600,
+      "fat": 20,
+      "proteins": 25,
+      "carb": 80
+    },
+    {
+      "name": {
+        "vi": "Bún chả",
+        "ja": "ブンチャー"
+      },
+      "calo": 500,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Gỏi cuốn",
+        "ja": "生春巻き"
+      },
+      "calo": 200,
+      "fat": 5,
+      "proteins": 10,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Phở gà",
+        "ja": "鶏肉のフォー"
+      },
+      "calo": 320,
+      "fat": 6,
+      "proteins": 18,
+      "carb": 55
+    },
+    {
+      "name": {
+        "vi": "Bánh cuốn",
+        "ja": "バインクオン"
+      },
+      "calo": 250,
+      "fat": 7,
+      "proteins": 10,
+      "carb": 35
+    },
+    {
+      "name": {
+        "vi": "Cá kho tộ",
+        "ja": "魚の土鍋煮"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Chả giò",
+        "ja": "揚げ春巻き"
+      },
+      "calo": 300,
+      "fat": 10,
+      "proteins": 12,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Bún bò Huế",
+        "ja": "フエ風牛肉麺"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 65
+    },
+    {
+      "name": {
+        "vi": "Sushi",
+        "ja": "寿司"
+      },
+      "calo": 300,
+      "fat": 5,
+      "proteins": 20,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Ramen",
+        "ja": "ラーメン"
+      },
+      "calo": 500,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Soba",
+        "ja": "蕎麦"
+      },
+      "calo": 350,
+      "fat": 2,
+      "proteins": 12,
+      "carb": 65
+    },
+    {
+      "name": {
+        "vi": "Udon",
+        "ja": "うどん"
+      },
+      "calo": 400,
+      "fat": 2,
+      "proteins": 10,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Okonomiyaki",
+        "ja": "お好み焼き"
+      },
+      "calo": 550,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Tempura",
+        "ja": "天ぷら"
+      },
+      "calo": 450,
+      "fat": 20,
+      "proteins": 15,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Katsu Curry",
+        "ja": "カツカレー"
+      },
+      "calo": 800,
+      "fat": 30,
+      "proteins": 25,
+      "carb": 100
+    },
+    {
+      "name": {
+        "vi": "Yakitori",
+        "ja": "焼き鳥"
+      },
+      "calo": 200,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 5
+    },
+    {
+      "name": {
+        "vi": "Onigiri",
+        "ja": "おにぎり"
+      },
+      "calo": 180,
+      "fat": 1,
+      "proteins": 3,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Shabu-shabu",
+        "ja": "しゃぶしゃぶ"
+      },
+      "calo": 350,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 15
+    },
+    {
+      "name": {
+        "vi": "Takoyaki",
+        "ja": "たこ焼き"
+      },
+      "calo": 300,
+      "fat": 10,
+      "proteins": 10,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Mì Quảng",
+        "ja": "クアン麺"
+      },
+      "calo": 500,
+      "fat": 12,
+      "proteins": 20,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Lẩu thập cẩm",
+        "ja": "鍋料理"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Xôi gấc",
+        "ja": "赤もち米"
+      },
+      "calo": 300,
+      "fat": 5,
+      "proteins": 8,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Cơm chiên dương châu",
+        "ja": "揚州チャーハン"
+      },
+      "calo": 550,
+      "fat": 20,
+      "proteins": 15,
+      "carb": 80
+    },
+    {
+      "name": {
+        "vi": "Cơm gà Hội An",
+        "ja": "ホイアンのチキンライス"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Kimbap",
+        "ja": "海苔巻き"
+      },
+      "calo": 350,
+      "fat": 8,
+      "proteins": 10,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Bánh xèo",
+        "ja": "バインセオ"
+      },
+      "calo": 400,
+      "fat": 15,
+      "proteins": 15,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Cha ca La Vong",
+        "ja": "ラヴォン風魚焼き"
+      },
+      "calo": 500,
+      "fat": 20,
+      "proteins": 25,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Tonkotsu Ramen",
+        "ja": "豚骨ラーメン"
+      },
+      "calo": 700,
+      "fat": 25,
+      "proteins": 20,
+      "carb": 85
+    },
+    {
+      "name": {
+        "vi": "Tamagoyaki",
+        "ja": "卵焼き"
+      },
+      "calo": 150,
+      "fat": 10,
+      "proteins": 6,
+      "carb": 5
+    },
+    {
+      "name": {
+        "vi": "Mì lạnh",
+        "ja": "冷麺"
+      },
+      "calo": 400,
+      "fat": 8,
+      "proteins": 15,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Kare Raisu",
+        "ja": "カレーライス"
+      },
+      "calo": 700,
+      "fat": 20,
+      "proteins": 15,
+      "carb": 95
+    },
+    {
+      "name": {
+        "vi": "Matcha soba",
+        "ja": "抹茶そば"
+      },
+      "calo": 300,
+      "fat": 2,
+      "proteins": 8,
+      "carb": 55
+    },
+    {
+      "name": {
+        "vi": "Hiyayakko",
+        "ja": "冷奴"
+      },
+      "calo": 80,
+      "fat": 4,
+      "proteins": 8,
+      "carb": 2
+    },
+    {
+      "name": {
+        "vi": "Chirashi Sushi",
+        "ja": "ちらし寿司"
+      },
+      "calo": 500,
+      "fat": 10,
+      "proteins": 30,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Gà nướng mật ong",
+        "ja": "蜂蜜焼きチキン"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 30,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Bánh bèo",
+        "ja": "バインベオ"
+      },
+      "calo": 250,
+      "fat": 5,
+      "proteins": 5,
+      "carb": 45
+    },
+    {
+      "name": {
+        "vi": "Natto",
+        "ja": "納豆"
+      },
+      "calo": 200,
+      "fat": 10,
+      "proteins": 18,
+      "carb": 12
+    }
+  ],
+  "dinner": [
+    {
+      "name": {
+        "vi": "Lẩu bò",
+        "ja": "牛鍋"
+      },
+      "calo": 600,
+      "fat": 20,
+      "proteins": 30,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Cơm cá kho",
+        "ja": "魚の煮物ご飯"
+      },
+      "calo": 500,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Chả cá lã vọng",
+        "ja": "ラヴォン風魚料理"
+      },
+      "calo": 450,
+      "fat": 20,
+      "proteins": 30,
+      "carb": 20
+    },
+    {
+      "name": {
+        "vi": "Gà hấp lá chanh",
+        "ja": "レモングラス風味蒸し鶏"
+      },
+      "calo": 400,
+      "fat": 10,
+      "proteins": 35,
+      "carb": 5
+    },
+    {
+      "name": {
+        "vi": "Mực xào chua ngọt",
+        "ja": "イカの甘酸っぱ炒め"
+      },
+      "calo": 350,
+      "fat": 8,
+      "proteins": 25,
+      "carb": 20
+    },
+    {
+      "name": {
+        "vi": "Bún riêu",
+        "ja": "ブンリュー"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 65
+    },
+    {
+      "name": {
+        "vi": "Cơm hến",
+        "ja": "あさりご飯"
+      },
+      "calo": 400,
+      "fat": 5,
+      "proteins": 25,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Vịt nấu chao",
+        "ja": "鴨肉の豆腐煮"
+      },
+      "calo": 500,
+      "fat": 15,
+      "proteins": 30,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Cơm niêu",
+        "ja": "土鍋ご飯"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 15,
+      "carb": 75
+    },
+    {
+      "name": {
+        "vi": "Canh chua cá",
+        "ja": "酸っぱい魚スープ"
+      },
+      "calo": 300,
+      "fat": 5,
+      "proteins": 20,
+      "carb": 35
+    },
+    {
+      "name": {
+        "vi": "Sukiyaki",
+        "ja": "すき焼き"
+      },
+      "calo": 550,
+      "fat": 20,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Kaiseki",
+        "ja": "懐石料理"
+      },
+      "calo": 800,
+      "fat": 25,
+      "proteins": 40,
+      "carb": 90
+    },
+    {
+      "name": {
+        "vi": "Nabe",
+        "ja": "鍋"
+      },
+      "calo": 400,
+      "fat": 10,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Unagi Kabayaki",
+        "ja": "うなぎ蒲焼"
+      },
+      "calo": 500,
+      "fat": 20,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Ochazuke",
+        "ja": "お茶漬け"
+      },
+      "calo": 300,
+      "fat": 2,
+      "proteins": 10,
+      "carb": 55
+    },
+    {
+      "name": {
+        "vi": "Gyoza",
+        "ja": "餃子"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 55
+    },
+    {
+      "name": {
+        "vi": "Yakizakana",
+        "ja": "焼き魚"
+      },
+      "calo": 400,
+      "fat": 10,
+      "proteins": 35,
+      "carb": 5
+    },
+    {
+      "name": {
+        "vi": "Karaage",
+        "ja": "唐揚げ"
+      },
+      "calo": 500,
+      "fat": 20,
+      "proteins": 30,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Donburi",
+        "ja": "丼ぶり"
+      },
+      "calo": 600,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 85
+    },
+    {
+      "name": {
+        "vi": "Oden",
+        "ja": "おでん"
+      },
+      "calo": 300,
+      "fat": 5,
+      "proteins": 15,
+      "carb": 35
+    },
+    {
+      "name": {
+        "vi": "Cơm chiên cá mặn",
+        "ja": "塩漬け魚炒めご飯"
+      },
+      "calo": 550,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 75
+    },
+    {
+      "name": {
+        "vi": "Bánh khọt",
+        "ja": "バインコット"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 10,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Gỏi gà",
+        "ja": "鶏肉のサラダ"
+      },
+      "calo": 300,
+      "fat": 8,
+      "proteins": 25,
+      "carb": 10
+    },
+    {
+      "name": {
+        "vi": "Mì xào giòn",
+        "ja": "揚げ麺炒め"
+      },
+      "calo": 500,
+      "fat": 20,
+      "proteins": 15,
+      "carb": 65
+    },
+    {
+      "name": {
+        "vi": "Cơm lươn",
+        "ja": "うなぎご飯"
+      },
+      "calo": 550,
+      "fat": 20,
+      "proteins": 25,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Bánh canh cua",
+        "ja": "カニのバインカイン"
+      },
+      "calo": 450,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 60
+    },
+    {
+      "name": {
+        "vi": "Lẩu gà lá giang",
+        "ja": "ライジャン葉の鶏鍋"
+      },
+      "calo": 500,
+      "fat": 10,
+      "proteins": 35,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Cá chiên xù",
+        "ja": "魚のフライ"
+      },
+      "calo": 400,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Bò kho",
+        "ja": "牛肉の煮込み"
+      },
+      "calo": 550,
+      "fat": 15,
+      "proteins": 35,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Ebi Fry",
+        "ja": "エビフライ"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 20,
+      "carb": 50
+    },
+    {
+      "name": {
+        "vi": "Cơm tấm bì",
+        "ja": "細切り豚肉ご飯"
+      },
+      "calo": 500,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 70
+    },
+    {
+      "name": {
+        "vi": "Canh bí đỏ",
+        "ja": "かぼちゃスープ"
+      },
+      "calo": 250,
+      "fat": 5,
+      "proteins": 5,
+      "carb": 45
+    },
+    {
+      "name": {
+        "vi": "Canh măng chua",
+        "ja": "酸っぱい竹の子スープ"
+      },
+      "calo": 200,
+      "fat": 4,
+      "proteins": 8,
+      "carb": 30
+    },
+    {
+      "name": {
+        "vi": "Tsukemen",
+        "ja": "つけ麺"
+      },
+      "calo": 600,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 90
+    },
+    {
+      "name": {
+        "vi": "Tori Karaage",
+        "ja": "鶏唐揚げ"
+      },
+      "calo": 450,
+      "fat": 15,
+      "proteins": 25,
+      "carb": 40
+    },
+    {
+      "name": {
+        "vi": "Shioyaki Saba",
+        "ja": "塩焼きサバ"
+      },
+      "calo": 350,
+      "fat": 10,
+      "proteins": 25,
+      "carb": 5
+    },
+    {
+      "name": {
+        "vi": "Tamago Don",
+        "ja": "卵丼"
+      },
+      "calo": 400,
+      "fat": 10,
+      "proteins": 20,
+      "carb": 55
+    },
+    {
+      "name": {
+        "vi": "Nikujaga",
+        "ja": "肉じゃが"
+      },
+      "calo": 350,
+      "fat": 8,
+      "proteins": 15,
+      "carb": 50
+    }
+  ]
+}

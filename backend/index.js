@@ -1,6 +1,7 @@
 require("dotenv").config();
-const app = require("./src/app");
+const app = require("./src/app.js");
 const clc = require("cli-color");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT;
 const UserModel = require("./src/models/User");
 const ScheduleModel = require("./src/models/Schedule");
@@ -17,6 +18,9 @@ const connectMongo = async () => {
     console.log(clc.green("Connection MongoDB Success"));
     console.log("====================================");
   } catch (error) {
+    console.log("====================================");
+    console.log(error);
+    console.log("====================================");
     console.log("====================================");
     console.log(clc.red("Connection MongoDB failed"));
     console.log("====================================");

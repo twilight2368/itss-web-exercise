@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const clc = require("cli-color");
 const jwt = require("jsonwebtoken");
@@ -30,6 +31,12 @@ function checkJwtFromCookie(req, res, next) {
     return res.status(403).json({ message: "Invalid token" });
   }
 }
+
+router.get("/", (req, res, next) => {
+  res.json({
+    message: "Hello world",
+  });
+});
 
 router.post("/auth/register", (req, res, next) => {
   try {
@@ -83,7 +90,7 @@ router.put("/update_lost_weight/:id", (req, res, next) => {
   }
 });
 
-router.put("/update_gain_weigh/:idt", (req, res, next) => {
+router.put("/update_gain_weigh/:id", (req, res, next) => {
   try {
   } catch (error) {
     next(error);
@@ -126,4 +133,5 @@ router.get("/get-schedule/:id", (req, res, next) => {
 });
 
 router.use(errorHandling);
+
 module.exports = router;

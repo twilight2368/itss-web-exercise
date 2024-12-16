@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
-const router = require("./app.routes");
+const router = require("./app.routes")
 
 app.use(express.json());
 app.use(express({ urlencoded: "extended" }));
