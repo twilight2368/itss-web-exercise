@@ -64,7 +64,7 @@ export default function DashboardPage() {
   const { t } = useTranslation();
 
   const currentHour = new Date().getHours();
-  const isLunchTime = currentHour >= 11 && currentHour < 14; //* 11 AM to 2 PM
+  const isLunchTime = currentHour >= 3 && currentHour < 14; //* 3 AM to 2 PM
 
   return (
     <div className=" min-h-screen p-6">

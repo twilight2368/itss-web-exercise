@@ -15,6 +15,7 @@ export default function DemoWatchModal() {
         variant="outlined"
         size="large"
         className="w-48"
+        color="black"
         onClick={handleOpen}
       >
         <IoPlayOutline />

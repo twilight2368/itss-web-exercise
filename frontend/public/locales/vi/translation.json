@@ -59,7 +59,9 @@
     "position": "Chức vụ",
     "place_of_work": "Nơi làm việc",
     "buttonChange": "Thay đổi",
-    "buttonChangeCancel": "Hủy bỏ"
+    "buttonChangeCancel": "Hủy bỏ",
+    "save": "Lưu",
+    "upload_image": "Tải hình ảnh lên"
   },
   "DashboardPage": {
     "header": "Bảng điều khiển",

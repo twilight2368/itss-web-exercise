@@ -10,8 +10,22 @@ export default function ProfilePage() {
       </div>
       <div className="w-full p-12">
         <div className="w-full flex flex-row gap-0">
-          <div className="w-1/2 flex justify-center items-start pt-12">
-            <img src="https://placehold.jp/300x300.png" alt="" />
+          <div className="w-1/2 flex flex-col gap-6 justify-center items-start">
+            <div className="h-[300px] aspect-square">
+              <img src="https://placehold.jp/300x300.png" alt="" />
+            </div>
+            <div className="relative w-[300px] hover:cursor-pointer ">
+              <button
+                disabled
+                className="p-4 w-full h-full font-bold shadow-md bg-blue-400 shadow-blue-300  rounded-md"
+              >
+                {t("profilePage.upload_image")}
+              </button>
+              <input
+                type="file"
+                className=" absolute top-0 left-0 h-full w-full opacity-0 hover:cursor-pointer"
+              />
+            </div>
           </div>
           <div className="w-1/2 pr-24 flex flex-col gap-4">
             <TextField
@@ -50,7 +64,7 @@ export default function ProfilePage() {
               type="text"
               disabled
             />
-            <Input type="file" disabled />
+
             <div>
               {!true ? (
                 <>
@@ -63,9 +77,7 @@ export default function ProfilePage() {
               ) : (
                 <>
                   <div className=" flex flex-row gap-3">
-                    <Button variant="contained">
-                      {t("profilePage.buttonChange")}
-                    </Button>
+                    <Button variant="contained">{t("profilePage.save")}</Button>
                     <Button variant="outlined" color="error">
                       {t("profilePage.buttonChangeCancel")}
                     </Button>

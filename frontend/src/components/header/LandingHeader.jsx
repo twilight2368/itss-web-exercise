@@ -30,6 +30,7 @@ export default function LandingHeader() {
         <div>
           <Button
             variant="outlined"
+            color="black"
             className=" w-32"
             onClick={() => {
               navigate("/register");

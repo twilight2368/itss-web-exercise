@@ -59,7 +59,9 @@
     "position": "役職",
     "place_of_work": "勤務先",
     "buttonChange": "変更",
-    "buttonChangeCancel": "キャンセル"
+    "buttonChangeCancel": "キャンセル",
+    "save": "保存",
+    "upload_image": "画像をアップロード"
   },
   "DashboardPage": {
     "header": "ダッシュボード",
