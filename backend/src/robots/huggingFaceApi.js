@@ -4,6 +4,7 @@ const HF_API_TOKEN = process.env.HF_TOKEN;
 const HF_MODEL_URL =
   "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-Coder-32B-Instruct";
 
+//!NOTE: HAVING WEIRD BEHAVIOR MAY EXCEED THE LIMIT OF WORD CHARACTERS CAN HAVE
 async function callHuggingFaceAPI(calendarData) {
   if (!HF_API_TOKEN) {
     console.error("HF_API_TOKEN is not defined in the .env file");
@@ -54,7 +55,7 @@ PLEASE NO EXPLANATIONS OR TEXT JUST JSON VALUE.
   const body = JSON.stringify({
     inputs: prompt,
     parameters: {
-      max_new_tokens: 500,
+      max_new_tokens: 1000,
       return_full_text: false,
     },
   });

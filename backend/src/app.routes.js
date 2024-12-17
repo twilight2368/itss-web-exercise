@@ -276,7 +276,16 @@ router.post("/create-exercise", async (req, res, next) => {
   }
 });
 
-router.post("/create-exercise-import", async (req, res, next) => {
+// {
+//     "calendarData":[
+//   {
+//     "date": "2024-12-18",
+//     "time_start": "09:00",
+//     "time_end": "17:00",
+//     "event": "Work"
+//   },
+// }
+router.post("/generate-exercise", async (req, res, next) => {
   try {
     const { calendarData } = req.body; // User's calendar input in JSON format
 
