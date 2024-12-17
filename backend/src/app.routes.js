@@ -7,6 +7,7 @@ const MENU = require("./mock/food.json");
 const router = express.Router();
 const UserModel = require("./models/User");
 const ScheduleModel = require("./models/Schedule");
+const callHuggingFaceAPI = require("./robots/huggingFaceApi");
 
 //TODO: Middlewares ---------------------------------------------
 function errorHandling(err, req, res, next) {
@@ -268,15 +269,39 @@ router.get("/menu-week", (req, res, next) => {
 });
 
 //TODO: SCHEDULE ---------------------------------------------------
-router.post("/create-exercise", (req, res, next) => {
+router.post("/create-exercise", async (req, res, next) => {
   try {
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/create-exercise-import", (req, res, next) => {
+router.post("/create-exercise-import", async (req, res, next) => {
   try {
+    const { calendarData } = req.body; // User's calendar input in JSON format
+
+    if (!calendarData || !Array.isArray(calendarData)) {
+      return res.status(400).json({
+        error: "Invalid input format. Please provide a valid calendar array.",
+      });
+    }
+
+    // console.log("====================================");
+    // console.log(calendarData);
+    // console.log("====================================");
+
+    const schedule = await callHuggingFaceAPI(calendarData);
+
+    if (!schedule) {
+      return res.status(400).json({
+        error: "Error",
+      });
+    }
+
+    res.json({
+      message: "Successful",
+      data: schedule,
+    });
   } catch (error) {
     next(error);
   }
