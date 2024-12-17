@@ -10,7 +10,7 @@ const ColorfulBackground = ({ text }) => {
          blur-3xl "
       ></div>
       <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="logo text-6xl font-extrabold text-black p-6 rounded-xl">
+        <h1 className="logo text-4xl font-extrabold text-black p-6 rounded-xl">
           {text}
         </h1>
       </div>

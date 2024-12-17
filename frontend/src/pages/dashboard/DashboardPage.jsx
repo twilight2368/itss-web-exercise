@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Image1 from "../../assets/exercise/badminton.svg";
 import Image2 from "../../assets/exercise/basketball.svg";
@@ -11,8 +11,9 @@ import Image8 from "../../assets/exercise/swimming.svg";
 import Image9 from "../../assets/exercise/yoga.svg";
 import Paper from "@mui/material/Paper";
 import ModalSport from "../../components/modals/ModalSport";
-import FoodCard from "../../components/food/FoodCard";
 import classNames from "classnames";
+import axios from "axios";
+
 const exerciseImages = [
   {
     image: Image1,
@@ -62,10 +63,64 @@ const exerciseImages = [
 ];
 
 export default function DashboardPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [menu, setMenu] = useState();
 
   const currentHour = new Date().getHours();
   const isLunchTime = currentHour >= 3 && currentHour < 14; //* 3 AM to 2 PM
+
+  const DataOutdatedInDay = (storedDate) => {
+    const today = new Date();
+    const storedDateObj = new Date(storedDate);
+    const diffTime = today - storedDateObj;
+    const diffDays = diffTime / (1000 * 3600 * 24);
+    return Math.floor(diffDays);
+  };
+
+  useEffect(() => {
+    const curr_menu = localStorage.getItem("menu-day");
+    const last_fetch = localStorage.getItem("menu-day-last-fetch");
+
+    if (curr_menu && last_fetch) {
+      //..
+      const diff_days = DataOutdatedInDay(JSON.parse(last_fetch));
+      const crr_menu_parsed = JSON.parse(curr_menu);
+
+      if (diff_days) {
+        axios.get("/api/menu-day").then((response) => {
+          if (isLunchTime) {
+            setMenu(response.data.data.lunch);
+          } else {
+            setMenu(response.data.data.dinner);
+          }
+          localStorage.setItem("menu-day", JSON.stringify(response.data.data));
+          localStorage.setItem(
+            "menu-day-last-fetch",
+            JSON.stringify(new Date().toISOString())
+          );
+        });
+      } else {
+        if (isLunchTime) {
+          setMenu(crr_menu_parsed.lunch);
+        } else {
+          setMenu(crr_menu_parsed.dinner);
+        }
+      }
+    } else {
+      axios.get("/api/menu-day").then((response) => {
+        if (isLunchTime) {
+          setMenu(response.data.data.lunch);
+        } else {
+          setMenu(response.data.data.dinner);
+        }
+        localStorage.setItem("menu-day", JSON.stringify(response.data.data));
+        localStorage.setItem(
+          "menu-day-last-fetch",
+          JSON.stringify(new Date().toISOString())
+        );
+      });
+    }
+  }, []);
 
   return (
     <div className=" min-h-screen p-6">
@@ -107,14 +162,55 @@ export default function DashboardPage() {
               </h1>
             </div>
             <div className="w-full pt-3 px-3 h-[500px] gap-0 grid grid-cols-2 grid-rows-2">
-              <FoodCard />
-              <FoodCard />
-              <FoodCard />
-              <FoodCard />
+              {menu ? (
+                <>
+                  {menu.map((item, i) => {
+                    return (
+                      <>
+                        <FoodCard item={item} />
+                      </>
+                    );
+                  })}
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </Paper>
         </div>
       </div>
+    </div>
+  );
+}
+
+function FoodCard({ item }) {
+  const { t, i18n } = useTranslation();
+  return (
+    <div className="w-full h-full p-1 flex justify-center items-center">
+      <Paper elevation={1} className="w-full h-full p-2">
+        <div className="line-clamp-2 p-1 h-12  font-black">
+          {item.name[i18n.language]}
+        </div>
+        <div className="h-40 w-full">
+          <div className="flex h-full flex-col gap-2 justify-center">
+            <span className=" before:content-['🔵']">
+              <span>{t("foodCard.Calories")}: </span>
+              {item.calo} <span>(kcal)</span>
+            </span>
+            <span className=" before:content-['🟢']">
+              <span>{t("foodCard.Protein")}: </span> {item.proteins}{" "}
+              <span>(g)</span>
+            </span>
+            <span className=" before:content-['🟠']">
+              <span>{t("foodCard.Fat")}: </span>
+              {item.fat} <span>(g)</span>
+            </span>
+            <span className=" before:content-['🔴']">
+              <span>{t("foodCard.Carb")}: </span> {item.carb} <span>(g)</span>
+            </span>
+          </div>
+        </div>
+      </Paper>
     </div>
   );
 }

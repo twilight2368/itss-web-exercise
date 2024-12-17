@@ -10,7 +10,7 @@ export default function Logo() {
       }}
     >
       <img src={LogoImage} alt="" className="h-full aspect-square" />
-      <div className=" text-4xl font-black logo">Regress</div>
+      <div className=" text-2xl font-black logo">Smart Exercise Plan</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LandingPage from "./pages/landing/LandingPage";
 import LoginPage from "./pages/auth/LoginPage";
@@ -16,6 +16,7 @@ import TargetHealthImprovePage from "./pages/target/TargetHealthImprovePage";
 import StatisticPage from "./pages/statistic/StatisticPage";
 import NutritionPage from "./pages/nutrition/NutritionPage";
 import NotFoundPage from "./pages/notfound/NotFoundPage";
+
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />

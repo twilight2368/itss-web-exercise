@@ -8,12 +8,22 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/be-vietnam-pro";
 import "@fontsource/sofia";
+import LoginProvider from "./context/LoginProvider";
 import i18n from "./i18.js";
 import { I18nextProvider } from "react-i18next";
+import axios from "axios";
+import { store } from "./store/store.js";
+import { Provider } from "react-redux";
+axios.defaults.withCredentials = true;
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <I18nextProvider i18n={i18n}>
-      <App />
-    </I18nextProvider>
+    <Provider store={store}>
+      <I18nextProvider i18n={i18n}>
+        <LoginProvider>
+          <App />
+        </LoginProvider>
+      </I18nextProvider>
+    </Provider>
   </StrictMode>
 );

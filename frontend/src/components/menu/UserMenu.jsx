@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import { Button, IconButton } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUserInfo } from "../../store/UserSlicer";
+import { LoginContext } from "../../context/LoginContext";
 export default function UserMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { setIsLogin } = useContext(LoginContext);
+  const user_info = useSelector((state) => state.user.user_info);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const open = Boolean(anchorEl);
@@ -14,6 +19,14 @@ export default function UserMenu() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const dispatch = useDispatch();
+
+  const handlingLogout = () => {
+    dispatch(clearUserInfo());
+    setIsLogin(false);
+    navigate("/");
   };
 
   return (
@@ -27,7 +40,7 @@ export default function UserMenu() {
       >
         <Avatar
           alt="img"
-          src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png"
+          src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
         />
       </IconButton>
       <Menu
@@ -44,10 +57,14 @@ export default function UserMenu() {
             <div className="w-1/4 flex justify-center items-center">⭐</div>
             <div className="w-3/4 flex flex-col gap-1">
               <div className="w-full pr-2">
-                <p className="w-full truncate">Username</p>
+                <p className="w-full text-xs truncate">
+                  {user_info ? user_info.name : ""}
+                </p>
               </div>
               <div className="w-full pr-2">
-                <p className="w-full truncate">www.mail@gamil.com</p>
+                <p className="w-full text-xs truncate">
+                  {user_info ? user_info.email : ""}
+                </p>
               </div>
             </div>
           </div>
@@ -56,19 +73,12 @@ export default function UserMenu() {
             variant="outlined"
             onClick={() => {
               navigate("/home/profile");
+              handleClose();
             }}
           >
             {t("user_menu.profile")}
           </Button>
-          <Button
-            color="error"
-            variant="contained"
-            onClick={() => {
-              console.log("====================================");
-              console.log("Logout");
-              console.log("====================================");
-            }}
-          >
+          <Button color="error" variant="contained" onClick={handlingLogout}>
             {t("user_menu.logout")}
           </Button>
         </div>

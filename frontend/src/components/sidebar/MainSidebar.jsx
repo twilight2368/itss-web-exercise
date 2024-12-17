@@ -7,7 +7,9 @@ export default function MainSidebar() {
   return (
     <div className="w-full h-full flex flex-col justify-between">
       <div className="w-full pt-6 flex flex-col gap-12">
-        <div className=" text-4xl text-center font-black logo ">Regress</div>
+        <div className=" text-2xl text-center font-black logo ">
+          Smart Exercise Plan
+        </div>
         <div className="px-3 flex flex-col gap-3 justify-start items-start ">
           <LinkItem text={"links.dashboard"} to="" end={true} />
           <LinkItem text={"links.schedule"} to="/schedule" end={false} />

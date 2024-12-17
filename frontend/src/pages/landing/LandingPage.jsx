@@ -15,10 +15,15 @@ import Image9 from "../../assets/exercise/yoga.svg";
 import Footer from "../../components/footer/Footer";
 import DemoWatchModal from "./DemoWatchModal";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
+import { useSelector } from "react-redux";
 
 export default function LandingPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isLogin } = useContext(LoginContext);
+  const user = useSelector((state) => state.user);
   const exerciseImages = [
     Image1,
     Image2,
@@ -44,8 +49,8 @@ export default function LandingPage() {
             </div>
             <div className=" font-black text-6xl w-96 text-center">
               <div className="mb-4">No regret with</div>
-              <div className="w-2/3 mx-auto">
-                <ColorfulBackground text={"Regress"} />
+              <div className="w-full mx-auto">
+                <ColorfulBackground text={"Smart Exercise Plan"} />
               </div>
             </div>
             <div className=" w-full flex justify-center items-center gap-6">
@@ -54,7 +59,11 @@ export default function LandingPage() {
                 size="large"
                 className="w-32"
                 onClick={() => {
-                  navigate("/register");
+                  if (user.user_id !== "" && user.token !== "") {
+                    navigate("/home");
+                  } else {
+                    navigate("/register");
+                  }
                 }}
               >
                 {t("landingPage.button1")}
@@ -64,10 +73,10 @@ export default function LandingPage() {
           </div>
           <div className="w-1/2 relative flex justify-center items-center">
             <div className="relative grid grid-cols-3 gap-12">
-              {exerciseImages.map((image) => {
+              {exerciseImages.map((image, i) => {
                 return (
                   <>
-                    <ItemDisplay image={image} />
+                    <ItemDisplay key={i} image={image} />
                   </>
                 );
               })}
