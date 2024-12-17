@@ -276,6 +276,13 @@ router.post("/create-exercise", async (req, res, next) => {
   }
 });
 
+router.post("/create-exercise-import", async (req, res, next) => {
+  try {
+  } catch (error) {
+    next(error);
+  }
+});
+
 // {
 //     "calendarData":[
 //   {
