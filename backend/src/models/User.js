@@ -3,14 +3,30 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema(
   {
     name: String,
-    password: String,
+    password: {
+      type: String,
+      select: false,
+    },
+    email: {
+      type: String,
+      unique: true,
+    },
     date_of_birth: {
       type: Date,
       default: Date.now,
     },
-    phone: String,
-    place_of_work: String,
-    position: String,
+    phone: {
+      type: String,
+      default: "",
+    },
+    place_of_work: {
+      type: String,
+      default: "",
+    },
+    position: {
+      type: String,
+      default: "",
+    },
     target: {
       gain_weight: {
         description: {
@@ -87,6 +103,7 @@ const UserSchema = new mongoose.Schema(
         },
         evaluate: {
           type: Number,
+          default: 0,
           min: 0,
           max: 5,
         },
