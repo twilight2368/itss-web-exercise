@@ -13,7 +13,7 @@ const ScheduleSchema = new mongoose.Schema(
     time_end: { type: Date, default: Date.now },
     duration_in_minutes: {
       type: Number,
-      min: 20,
+      min: 5,
       max: 90,
     },
     value: {
