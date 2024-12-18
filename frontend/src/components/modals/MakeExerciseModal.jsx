@@ -12,9 +12,17 @@ import Image6 from "../../assets/exercise/running.svg";
 import Image7 from "../../assets/exercise/soccer.svg";
 import Image8 from "../../assets/exercise/swimming.svg";
 import Image9 from "../../assets/exercise/yoga.svg";
-import { TextField } from "@mui/material";
-import Slider from "@mui/material/Slider";
 
+import moment from "moment";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import Slider from "@mui/material/Slider";
+import classNames from "classnames";
+import { useSelector } from "react-redux";
+
+import axios from "axios";
 const style = {
   position: "absolute",
   top: "50%",
@@ -75,12 +83,56 @@ const exerciseImages = [
   },
 ];
 
-export default function MakeExerciseModal() {
+export default function MakeExerciseModal({ letParsedEvent }) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState();
+  const [minValue, setMinValue] = useState(0);
+  const [loading, setLoading] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setValue(null);
+    setMinValue(0);
+  };
   const { t } = useTranslation();
+  const dateNow = new Date();
+  const [timeStart, setTimeStart] = useState(moment(dateNow));
+
+  const user_id = useSelector((state) => state.user.user_id);
+
+  const handlingSave = () => {
+    // console.log("====================================");
+    // console.log(timeStart.toISOString());
+    // console.log(minValue);
+    // console.log(value); // Exercise
+    // console.log(user_id)
+    // console.log("====================================");
+
+    setLoading(true);
+
+    if (user_id !== "") {
+      axios
+        .post(`/api/create-exercise`, {
+          user_id: user_id,
+          time_start: timeStart.toISOString(),
+          duration_in_minutes: minValue,
+          value: value,
+        })
+        .then((response) => {
+          //console.log(response.data);
+          letParsedEvent(response.data.schedules);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          setLoading(false);
+          handleClose();
+        });
+    } else {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -100,12 +152,56 @@ export default function MakeExerciseModal() {
                 {t("modalExercise.header")}
               </h3>
             </div>
-            <div className="w-full mb-6">
-              <h4 className=" text-xl font-black">
-                {t("modalExercise.title")}
-              </h4>
+            <div className=" w-full h-12 mb-9 px-3">
+              <div className="flex flex-row items-center justify-between">
+                <div className=" font-bold">
+                  {t("modalExercise.start_time")}
+                </div>
+                <LocalizationProvider dateAdapter={AdapterMoment}>
+                  <DemoContainer components={["DateTimePicker"]}>
+                    <DateTimePicker
+                      label={t("modalExercise.start_time")}
+                      value={timeStart}
+                      onChange={(newValue) => {
+                        setTimeStart(newValue);
+                      }}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </div>
             </div>
-            <div className="w-full min-h-96 mb-6">
+            <div className=" w-full h-24 px-3">
+              <div className=" font-bold mb-3">
+                {t("modalExercise.durations_time")}: {minValue}'
+              </div>
+              <div className="w-full flex flex-row justify-between px-6">
+                <div className=" text-sm text-center w-1/12 pt-1">0'</div>
+                <div className=" w-10/12 px-3">
+                  <Slider
+                    value={minValue}
+                    onChange={(e, value) => {
+                      setMinValue(value);
+                    }}
+                    step={10}
+                    marks
+                    min={0}
+                    max={90}
+                  />
+                </div>
+                <div className=" text-sm text-center w-1/12 pt-1">90'</div>
+              </div>
+            </div>
+            <div
+              className={classNames(
+                "w-full mb-24 duration-200 overflow-hidden whitespace-nowrap transition-all",
+                minValue && timeStart ? "max-h-[750px]" : "max-h-0"
+              )}
+            >
+              <div className="w-full mb-6">
+                <h4 className=" text-center text-xl font-black">
+                  {t("modalExercise.title")}
+                </h4>
+              </div>
               <div className="w-full grid grid-cols-3 gap-6 px-6">
                 {exerciseImages.map((item, i) => {
                   return (
@@ -123,24 +219,13 @@ export default function MakeExerciseModal() {
                 })}
               </div>
             </div>
-            <div className=" w-full h-12 mb-9 px-3">
-              <div className="flex flex-row items-center justify-between">
-                <div>{t("modalExercise.start_time")}</div>
-                <TextField type="time" className="w-1/3" />
-              </div>
-            </div>
-            <div className=" w-full h-24 px-3">
-              <div className=" mb-3">{t("modalExercise.durations_time")}</div>
-              <div className="w-full flex flex-row justify-between px-6">
-                <div className=" text-sm text-center w-1/12 pt-1">20'</div>
-                <div className=" w-10/12 px-3">
-                  <Slider defaultValue={20} step={10} marks min={20} max={90} />
-                </div>
-                <div className=" text-sm text-center w-1/12 pt-1">90'</div>
-              </div>
-            </div>
             <div className="w-full my-6 flex justify-center items-center">
-              <Button variant="contained" color="warning">
+              <Button
+                variant="contained"
+                color="warning"
+                disabled={loading}
+                onClick={handlingSave}
+              >
                 {t("modalExercise.save")}
               </Button>
             </div>

@@ -8,7 +8,7 @@ const router = express.Router();
 const UserModel = require("./models/User");
 const ScheduleModel = require("./models/Schedule");
 const callHuggingFaceAPI = require("./robots/huggingFaceApi");
-const userModel = require("./models/User");
+const moment = require("moment");
 
 //TODO: Middlewares ---------------------------------------------
 function errorHandling(err, req, res, next) {
@@ -428,15 +428,56 @@ router.get("/menu-week", (req, res, next) => {
 });
 
 //TODO: SCHEDULE ---------------------------------------------------
+
+// Create a new exercise schedule
 router.post("/create-exercise", async (req, res, next) => {
   try {
-  } catch (error) {
-    next(error);
-  }
-});
+    const { user_id, time_start, duration_in_minutes, value } = req.body;
 
-router.post("/create-exercise-import", async (req, res, next) => {
-  try {
+    // Validate input
+    if (!user_id || !time_start || !duration_in_minutes || !value) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
+
+    // Parse and validate time_start
+    const start = moment(time_start);
+
+    if (!start.isValid()) {
+      return res.status(400).json({ message: "Invalid date format." });
+    }
+
+    if (duration_in_minutes < 10 || duration_in_minutes > 90) {
+      return res.status(400).json({
+        message: "Duration must be between 10 and 90 minutes.",
+      });
+    }
+
+    // Calculate time_end based on duration
+    const end = moment(start).add(duration_in_minutes, "minutes");
+
+    // Create new schedule entry
+    const newSchedule = new ScheduleModel({
+      user: user_id,
+      time_start: start.toDate(),
+      time_end: end.toDate(),
+      duration_in_minutes,
+      value,
+    });
+
+    await newSchedule.save();
+
+    // Fetch all schedules for the user
+    const userSchedules = await ScheduleModel.find({ user: user_id })
+      .select("-user")
+      .sort({
+        time_start: 1,
+      });
+
+    // Respond with schedules and success message
+    res.status(201).json({
+      message: "Successful",
+      schedules: userSchedules,
+    });
   } catch (error) {
     next(error);
   }
@@ -457,7 +498,7 @@ router.post("/generate-exercise", async (req, res, next) => {
 
     if (!calendarData || !Array.isArray(calendarData)) {
       return res.status(400).json({
-        error: "Invalid input format. Please provide a valid calendar array.",
+        message: "Invalid input format. Please provide a valid calendar array.",
       });
     }
 
@@ -482,8 +523,27 @@ router.post("/generate-exercise", async (req, res, next) => {
   }
 });
 
-router.get("/get-schedule/:id", (req, res, next) => {
+// Get all schedules for a specific user
+router.get("/schedule/:id", async (req, res, next) => {
   try {
+    const userId = req.params.id;
+
+    // Fetch schedules for the user
+    const userSchedules = await ScheduleModel.find({ user: userId }).sort({
+      time_start: 1,
+    });
+
+    if (!userSchedules.length) {
+      return res.status(200).json({
+        message: "No schedules found for this user.",
+        schedules: [],
+      });
+    }
+
+    res.status(200).json({
+      message: "Schedules retrieved successfully.",
+      schedules: userSchedules,
+    });
   } catch (error) {
     next(error);
   }

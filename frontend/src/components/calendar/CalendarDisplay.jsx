@@ -31,7 +31,7 @@ const lang = {
   },
 };
 
-export default function CalendarDisplay() {
+export default function CalendarDisplay({ events }) {
   const { i18n } = useTranslation();
 
   const [culture, setCulture] = useState(i18n.language || "vi");
@@ -64,6 +64,7 @@ export default function CalendarDisplay() {
   return (
     <div className="h-[800px]">
       <Calendar
+        events={events}
         localizer={localizer}
         culture={culture}
         defaultDate={defaultDate}

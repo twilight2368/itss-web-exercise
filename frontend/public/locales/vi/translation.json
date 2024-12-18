@@ -1,6 +1,15 @@
 {
   "language": "Tiếng Việt",
   "welcome": "Chào mừng bạn!",
+  "badminton": "Cầu lông",
+  "basketball": "Bóng rổ",
+  "climbing": "Leo núi",
+  "dancing": "Nhảy múa",
+  "jumprope": "Nhảy dây",
+  "running": "Chạy bộ",
+  "soccer": "Bóng đá",
+  "swimming": "Bơi lội",
+  "yoga": "Yoga",
   "login": "đăng nhập",
   "register": "đăng ký",
   "landingPage": {

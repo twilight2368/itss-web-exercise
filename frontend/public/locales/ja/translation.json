@@ -1,6 +1,15 @@
 {
   "language": "日本語",
   "welcome": "ようこそ！",
+  "badminton": "バドミントン",
+  "basketball": "バスケットボール",
+  "climbing": "クライミング",
+  "dancing": "ダンス",
+  "jumprope": "縄跳び",
+  "running": "ランニング",
+  "soccer": "サッカー",
+  "swimming": "水泳",
+  "yoga": "ヨガ",
   "login": "ログイン",
   "register": "登録",
   "landingPage": {
