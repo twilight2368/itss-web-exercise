@@ -9,6 +9,7 @@ const UserModel = require("./models/User");
 const ScheduleModel = require("./models/Schedule");
 const callHuggingFaceAPI = require("./robots/huggingFaceApi");
 const moment = require("moment");
+const callHuggingFaceAPI2 = require("./robots/huggingFaceApi2");
 
 //TODO: Middlewares ---------------------------------------------
 function errorHandling(err, req, res, next) {
@@ -523,6 +524,13 @@ router.post("/generate-exercise", async (req, res, next) => {
   }
 });
 
+router.post("/generate-exercise-basic", async (req, res, next) => {
+  try {
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Get all schedules for a specific user
 router.get("/schedule/:id", async (req, res, next) => {
   try {
@@ -543,6 +551,60 @@ router.get("/schedule/:id", async (req, res, next) => {
     res.status(200).json({
       message: "Schedules retrieved successfully.",
       schedules: userSchedules,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Get all schedules for a specific user
+router.get("/schedule-history/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    // Get the current date/time in UTC+7
+    const now = moment().utcOffset(7).toDate(); // Get current time in UTC+7 and convert to a Date object
+
+    // Fetch schedules for the user that have already passed (time_start < current time)
+    const userSchedules = await ScheduleModel.find({
+      user: userId,
+      time_end: { $lt: now }, // Only get schedules where time_start is less than the current time
+    })
+      .sort({ time_start: -1 }) // Sort by most recent past schedule first
+      .limit(9)
+      .select("value time_start");
+
+    if (!userSchedules.length) {
+      return res.status(200).json({
+        message: "No past schedules found for this user.",
+        schedules: [],
+      });
+    }
+
+    res.status(200).json({
+      message: "Past schedules retrieved successfully.",
+      schedules: userSchedules,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/recommend/:lang", async (req, res, next) => {
+  try {
+    const { lang } = req.params; // User's calendar input in JSON format
+
+    const response = await callHuggingFaceAPI2(lang);
+
+    if (!response) {
+      return res.status(400).json({
+        error: "Error",
+      });
+    }
+
+    res.json({
+      message: "Successful",
+      data: response,
     });
   } catch (error) {
     next(error);
