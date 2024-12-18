@@ -8,6 +8,7 @@ const router = express.Router();
 const UserModel = require("./models/User");
 const ScheduleModel = require("./models/Schedule");
 const callHuggingFaceAPI = require("./robots/huggingFaceApi");
+const userModel = require("./models/User");
 
 //TODO: Middlewares ---------------------------------------------
 function errorHandling(err, req, res, next) {
@@ -160,17 +161,6 @@ router.get("/get-profile/:id", checkJwtFromHeader, async (req, res, next) => {
 });
 
 router.put(
-  "/change-profile-image/:id",
-  checkJwtFromHeader,
-  (req, res, next) => {
-    try {
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
-router.put(
   "/change-profile/:id",
   checkJwtFromHeader,
   async (req, res, next) => {
@@ -208,22 +198,191 @@ router.put(
 );
 
 //TODO: TARGET ----------------------------------------------------
-router.put("/update_health/:id", (req, res, next) => {
+
+// Update "health_improve" target
+router.put("/update_health/:id", async (req, res, next) => {
   try {
+    const userId = req.params.id;
+    const { description, time_start, time_end, evaluate } = req.body;
+
+    // Find the user and update the health_improve target
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update fields for health_improve
+    user.target.health_improve.description =
+      description || user.target.health_improve.description;
+    user.target.health_improve.time_start =
+      time_start || user.target.health_improve.time_start;
+    user.target.health_improve.time_end =
+      time_end || user.target.health_improve.time_end;
+    user.target.health_improve.evaluate =
+      evaluate || user.target.health_improve.evaluate;
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Health improvement target updated successfully",
+      user: user,
+    });
   } catch (error) {
     next(error);
   }
 });
 
-router.put("/update_lost_weight/:id", (req, res, next) => {
+// Update "loss_weight" target
+router.put("/update_loss_weight/:id", async (req, res, next) => {
   try {
+    const userId = req.params.id;
+    const { description, crr_w, init_w, target_w, time_start, time_end } =
+      req.body;
+
+    // Find the user and update the loss_weight target
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update fields for loss_weight
+    user.target.loss_weight.description =
+      description || user.target.loss_weight.description;
+    user.target.loss_weight.crr_w = crr_w || user.target.loss_weight.crr_w;
+    user.target.loss_weight.init_w = init_w || user.target.loss_weight.init_w;
+    user.target.loss_weight.target_w =
+      target_w || user.target.loss_weight.target_w;
+    user.target.loss_weight.time_start =
+      time_start || user.target.loss_weight.time_start;
+    user.target.loss_weight.time_end =
+      time_end || user.target.loss_weight.time_end;
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Loss weight target updated successfully",
+      user: user,
+    });
   } catch (error) {
     next(error);
   }
 });
 
-router.put("/update_gain_weigh/:id", (req, res, next) => {
+// Update "gain_weight" target
+router.put("/update_gain_weight/:id", async (req, res, next) => {
   try {
+    const userId = req.params.id;
+    const { description, crr_w, init_w, target_w, time_start, time_end } =
+      req.body;
+
+    // Find the user and update the gain_weight target
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update fields for gain_weight
+    user.target.gain_weight.description =
+      description || user.target.gain_weight.description;
+    user.target.gain_weight.crr_w = crr_w || user.target.gain_weight.crr_w;
+    user.target.gain_weight.init_w = init_w || user.target.gain_weight.init_w;
+    user.target.gain_weight.target_w =
+      target_w || user.target.gain_weight.target_w;
+    user.target.gain_weight.time_start =
+      time_start || user.target.gain_weight.time_start;
+    user.target.gain_weight.time_end =
+      time_end || user.target.gain_weight.time_end;
+
+    await user.save();
+
+    res.status(200).json({
+      message: "Gain weight target updated successfully",
+      user: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update "health_improve" target to active
+router.put("/update_health_active/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    // Find user by ID
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update targets: only "health_improve" is active
+    user.target.health_improve.isActive = true;
+    user.target.gain_weight.isActive = false;
+    user.target.loss_weight.isActive = false;
+
+    // Save the updated user
+    await user.save();
+
+    res.status(200).json({
+      message: "Health improvement target activated successfully",
+      user: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update "loss_weight" target to active
+router.put("/update_lost_weight_active/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    // Find user by ID
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update targets: only "loss_weight" is active
+    user.target.health_improve.isActive = false;
+    user.target.gain_weight.isActive = false;
+    user.target.loss_weight.isActive = true;
+
+    // Save the updated user
+    await user.save();
+
+    res.status(200).json({
+      message: "Loss weight target activated successfully",
+      user: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Update "gain_weight" target to active
+router.put("/update_gain_weight_active/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+
+    // Find user by ID
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update targets: only "gain_weight" is active
+    user.target.health_improve.isActive = false;
+    user.target.loss_weight.isActive = false;
+    user.target.gain_weight.isActive = true;
+
+    // Save the updated user
+    await user.save();
+
+    res.status(200).json({
+      message: "Gain weight target activated successfully",
+      user: user,
+    });
   } catch (error) {
     next(error);
   }

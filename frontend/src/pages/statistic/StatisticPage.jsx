@@ -15,6 +15,11 @@ import Image6 from "../../assets/exercise/running.svg";
 import Image7 from "../../assets/exercise/soccer.svg";
 import Image8 from "../../assets/exercise/swimming.svg";
 import Image9 from "../../assets/exercise/yoga.svg";
+import { useSelector } from "react-redux";
+import {
+  CalculatePercentageEvaluate,
+  CalculatePercentageWeight,
+} from "../../utils/CalculatePercentage";
 
 const exerciseImages = [
   { image: Image1, value: "badminton" },
@@ -30,7 +35,7 @@ const exerciseImages = [
 
 export default function StatisticPage() {
   const { t } = useTranslation();
-
+  const user_info = useSelector((state) => state.user.user_info);
   // Carousel settings
   const carouselSettings = {
     dots: true,
@@ -40,11 +45,55 @@ export default function StatisticPage() {
     slidesToScroll: 1,
   };
 
-  const pieData = [
-    { id: 0, value: 75, label: t("statisticsPage.completed") },
-    { id: 1, value: 25, label: t("statisticsPage.not_completed") },
+  const pieData1 = [
+    {
+      id: 0,
+      value: CalculatePercentageWeight(
+        user_info.target.loss_weight.crr_w,
+        user_info.target.loss_weight.target_w,
+        user_info.target.loss_weight.init_w,
+        0
+      ),
+      label: t("statisticsPage.completed"),
+    },
+    {
+      id: 1,
+      value:
+        100 -
+        CalculatePercentageWeight(
+          user_info.target.loss_weight.crr_w,
+          user_info.target.loss_weight.target_w,
+          user_info.target.loss_weight.init_w,
+          0
+        ),
+      label: t("statisticsPage.not_completed"),
+    },
   ];
 
+  const pieData2 = [
+    {
+      id: 0,
+      value: CalculatePercentageWeight(
+        user_info.target.gain_weight.crr_w,
+        user_info.target.gain_weight.target_w,
+        user_info.target.gain_weight.init_w,
+        1
+      ),
+      label: t("statisticsPage.completed"),
+    },
+    {
+      id: 1,
+      value:
+        100 -
+        CalculatePercentageWeight(
+          user_info.target.gain_weight.crr_w,
+          user_info.target.gain_weight.target_w,
+          user_info.target.gain_weight.init_w,
+          1
+        ),
+      label: t("statisticsPage.not_completed"),
+    },
+  ];
   return (
     <div className="min-h-screen p-6">
       <div className="w-full h-16 border-b-2 mb-24">
@@ -59,7 +108,7 @@ export default function StatisticPage() {
                 {" "}
                 <PieChart
                   series={[
-                    { data: pieData, arcLabel: (item) => `${item.value}%` },
+                    { data: pieData1, arcLabel: (item) => `${item.value}%` },
                   ]}
                   width={800}
                   height={360}
@@ -75,7 +124,7 @@ export default function StatisticPage() {
                   colors={["#ba68c8", "slateblue"]}
                   series={[
                     {
-                      data: pieData,
+                      data: pieData2,
                       arcLabel: (item) => `${item.value}%`,
                     },
                   ]}
@@ -91,7 +140,7 @@ export default function StatisticPage() {
               <div className="w-full h-[300px] flex flex-col gap-12 justify-center items-center">
                 <Rating
                   name="disabled"
-                  value={3}
+                  value={user_info.target.health_improve.evaluate}
                   disabled
                   sx={{
                     fontSize: "4rem",

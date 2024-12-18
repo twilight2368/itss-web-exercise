@@ -67,6 +67,7 @@ export default function CalendarDisplay() {
         localizer={localizer}
         culture={culture}
         defaultDate={defaultDate}
+        defaultView="week"
         messages={messages}
       />
     </div>
