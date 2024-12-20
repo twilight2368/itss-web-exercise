@@ -9,6 +9,7 @@ const UserModel = require("./models/User");
 const ScheduleModel = require("./models/Schedule");
 const callHuggingFaceAPI = require("./robots/huggingFaceApi");
 const moment = require("moment");
+const momentTZ = require("moment-timezone");
 const callHuggingFaceAPI2 = require("./robots/huggingFaceApi2");
 
 //TODO: Middlewares ---------------------------------------------
@@ -508,7 +509,6 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-
     const schedule = await callHuggingFaceAPI(calendarData);
 
     if (!schedule) {
@@ -522,23 +522,19 @@ router.post("/generate-exercise", async (req, res, next) => {
     console.log("====================================");
 
     const formattedSchedule = schedule.map((item) => {
-      // Parse and adjust time with UTC+7
-      const timeStart = moment(
+      const timeStart = momentTZ.tz(
         `${item.date} ${item.time_start}`,
-        "YYYY-MM-DD HH:mm"
+        "YYYY-MM-DD HH:mm",
+        "Asia/Bangkok"
       );
-      const timeEnd = moment(
+
+      const timeEnd = momentTZ.tz(
         `${item.date} ${item.time_end}`,
-        "YYYY-MM-DD HH:mm"
+        "YYYY-MM-DD HH:mm",
+        "Asia/Bangkok"
       );
 
-      // Calculate duration in minutes
       const durationInMinutes = timeEnd.diff(timeStart, "minutes");
-
-      console.log("====================================");
-      console.log(timeStart.toDate());
-      console.log(timeEnd.toDate());
-      console.log("====================================");
 
       return {
         user: user_id,
