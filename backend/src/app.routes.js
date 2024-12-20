@@ -515,22 +515,30 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    console.log("====================================");
-    console.log(schedule);
-    console.log("====================================");
+    // console.log("====================================");
+    // console.log(schedule);
+    // console.log("====================================");
 
-    const formattedSchedule = schedule.map((item) => ({
-      user: user_id,
-      time_start: moment(
-        `${item.date} ${item.time_start}`,
-        "YYYY-MM-DD HH:mm"
-      ).toDate(),
-      time_end: moment(
-        `${item.date} ${item.time_end}`,
-        "YYYY-MM-DD HH:mm"
-      ).toDate(),
-      value: item.exercise,
-    }));
+    const formattedSchedule = schedule.map((item) => {
+      // Parse and adjust time with UTC+7
+      const timeStart = moment
+        .tz(`${item.date} ${item.time_start}`, "YYYY-MM-DD HH:mm")
+        .utcOffset(7);
+      const timeEnd = moment
+        .tz(`${item.date} ${item.time_end}`, "YYYY-MM-DD HH:mm")
+        .utcOffset(7);
+
+      // Calculate duration in minutes
+      const durationInMinutes = timeEnd.diff(timeStart, "minutes");
+
+      return {
+        user: user_id,
+        time_start: timeStart.toDate(),
+        time_end: timeEnd.toDate(),
+        value: item.exercise,
+        duration_in_minutes: durationInMinutes,
+      };
+    });
 
     // console.log("====================================");
     // console.log(formattedSchedule);
