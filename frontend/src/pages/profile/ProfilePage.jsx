@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
 import { setUserInfo } from "../../store/UserSlicer";
+import { toast } from "react-toastify";
 export default function ProfilePage() {
   const { t } = useTranslation();
   const user_info = useSelector((state) => state.user.user_info);
@@ -44,12 +45,12 @@ export default function ProfilePage() {
         })
         .then((response) => {
           dispatch(setUserInfo(response.data.user));
+          toast.success(t(response.data.message));
           setIsEditing(false);
         })
         .catch((error) => {
-          console.log("====================================");
-          console.log(error);
-          console.log("====================================");
+          console.error(error);
+          toast.error(t(error.response.data.message || "Error"));
         });
     } catch (error) {
       console.error("Failed to update profile", error);

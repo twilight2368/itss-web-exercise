@@ -40,7 +40,10 @@
     "sentences1": "Bạn chưa có tài khoản?",
     "sentences2": "Bạn đã có tài khoản?",
     "accept_term": "Đồng ý với điều khoản sử dụng",
-    "remember_me": "Ghi nhớ đăng nhập"
+    "remember_me": "Ghi nhớ đăng nhập",
+    "email_format": "Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại.",
+    "password_format": "Mật khẩu không hợp lệ. Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường và một số. Mật khẩu phải dài tối thiểu 8 ký tự.",
+    "password_mismatch": "Mật khẩu không khớp. Vui lòng kiểm tra lại."
   },
   "links": {
     "home": "Bảng điều khiển",
@@ -167,5 +170,32 @@
     "Protein": "Chất đạm",
     "Fat": "Chất béo",
     "Carb": "Tinh bột"
-  }
+  },
+  "Hello world": "Xin chào thế giới",
+  "User registered successfully": "Đăng ký người dùng thành công",
+  "All fields are required": "Cần tất cả các trường",
+  "User already exists": "Người dùng đã tồn tại",
+  "Invalid token": "Token không hợp lệ",
+  "User login successfully": "Đăng nhập người dùng thành công",
+  "User not found": "Không tìm thấy người dùng",
+  "Wrong password": "Mật khẩu sai",
+  "Logged out successfully": "Đăng xuất thành công",
+  "Successful": "Thành công",
+  "Update profile successful": "Cập nhật hồ sơ thành công",
+  "Health improvement target updated successfully": "Mục tiêu cải thiện sức khỏe đã được cập nhật thành công",
+  "Loss weight target updated successfully": "Mục tiêu giảm cân đã được cập nhật thành công",
+  "Gain weight target updated successfully": "Mục tiêu tăng cân đã được cập nhật thành công",
+  "Health improvement target activated successfully": "Mục tiêu cải thiện sức khỏe đã được kích hoạt thành công",
+  "Loss weight target activated successfully": "Mục tiêu giảm cân đã được kích hoạt thành công",
+  "Gain weight target activated successfully": "Mục tiêu tăng cân đã được kích hoạt thành công",
+  "Invalid input format. Please provide a valid calendar array.": "Định dạng đầu vào không hợp lệ. Vui lòng cung cấp mảng lịch hợp lệ.",
+  "Invalid date format.": "Định dạng ngày không hợp lệ.",
+  "Duration must be between 10 and 90 minutes.": "Thời gian phải nằm trong khoảng từ 10 đến 90 phút.",
+  "Something went wrong!!!": "Đã xảy ra lỗi!!!",
+  "Something went wrong": "Đã xảy ra lỗi",
+  "No schedules found for this user.": "Không tìm thấy lịch cho người dùng này.",
+  "Schedules retrieved successfully.": "Lịch đã được lấy thành công.",
+  "No past schedules found for this user.": "Không tìm thấy lịch đã qua cho người dùng này.",
+  "Past schedules retrieved successfully.": "Lịch đã qua được lấy thành công.",
+  "Error": "Lỗi"
 }

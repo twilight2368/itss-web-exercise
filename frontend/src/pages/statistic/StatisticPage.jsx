@@ -16,11 +16,9 @@ import Image7 from "../../assets/exercise/soccer.svg";
 import Image8 from "../../assets/exercise/swimming.svg";
 import Image9 from "../../assets/exercise/yoga.svg";
 import { useSelector } from "react-redux";
-import {
-  CalculatePercentageEvaluate,
-  CalculatePercentageWeight,
-} from "../../utils/CalculatePercentage";
+import { CalculatePercentageWeight } from "../../utils/CalculatePercentage";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const exerciseImages = {
   badminton: Image1,
@@ -101,12 +99,23 @@ export default function StatisticPage() {
 
   useEffect(() => {
     if (user_id !== "") {
-      axios.get(`/api/schedule-history/${user_id}`).then((response) => {
-        // console.log(response.data);
-        console.log(response.data.schedules);
+      axios
+        .get(`/api/schedule-history/${user_id}`)
+        .then((response) => {
+          // console.log(response.data);
+          // console.log(response.data.schedules);
 
-        setHistory(response.data.schedules);
-      }); // Adjust to your API endpoint
+          setHistory(response.data.schedules);
+        })
+        .catch((error) => {
+          toast.error(
+            t(
+              error.response.data.message
+                ? error.response.data.message
+                : "Error"
+            )
+          );
+        }); // Adjust to your API endpoint
     }
   }, [t]);
   return (

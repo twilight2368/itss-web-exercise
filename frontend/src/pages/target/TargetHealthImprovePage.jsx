@@ -53,12 +53,12 @@ export default function TargetHealthImprovePage() {
         payload
       );
       if (response.status === 200) {
-        toast.success(t("health_improve.update_success"));
+        toast.success(t(response.data.message));
         dispatch(setUserInfo(response.data.user));
       }
     } catch (error) {
       console.error("Error updating health improvement target:", error);
-      toast.error(t("health_improve.update_error"));
+      toast.error(t(error.response.data.message || "Error"));
     }
   };
 

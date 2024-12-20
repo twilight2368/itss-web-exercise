@@ -40,7 +40,10 @@
     "sentences1": "まだアカウントをお持ちでない方は",
     "sentences2": "既にアカウントをお持ちの方は",
     "accept_term": "利用規約に同意する",
-    "remember_me": "ログイン状態を保持する"
+    "remember_me": "ログイン状態を保持する",
+    "email_format": "無効なメールアドレスです。再度確認してください。",
+    "password_format": "無効なパスワードです。パスワードは少なくとも1つの大文字、1つの小文字、そして1つの数字を含む必要があります。パスワードは最低8文字でなければなりません。",
+    "password_mismatch": "パスワードが一致しません。再度確認してください。"
   },
   "links": {
     "home": "ダッシュボード",
@@ -167,5 +170,32 @@
     "Protein": "タンパク質",
     "Fat": "脂質",
     "Carb": "炭水化物"
-  }
+  },
+  "Hello world": "こんにちは世界",
+  "User registered successfully": "ユーザー登録成功",
+  "All fields are required": "すべてのフィールドが必要です",
+  "User already exists": "ユーザーが既に存在します",
+  "Invalid token": "無効なトークン",
+  "User login successfully": "ユーザーログイン成功",
+  "User not found": "ユーザーが見つかりません",
+  "Wrong password": "間違ったパスワード",
+  "Logged out successfully": "ログアウト成功",
+  "Successful": "成功",
+  "Update profile successful": "プロフィール更新成功",
+  "Health improvement target updated successfully": "健康改善目標が正常に更新されました",
+  "Loss weight target updated successfully": "減量目標が正常に更新されました",
+  "Gain weight target updated successfully": "増量目標が正常に更新されました",
+  "Health improvement target activated successfully": "健康改善目標が正常にアクティブ化されました",
+  "Loss weight target activated successfully": "減量目標が正常にアクティブ化されました",
+  "Gain weight target activated successfully": "増量目標が正常にアクティブ化されました",
+  "Invalid input format. Please provide a valid calendar array.": "無効な入力形式です。カレンダー配列を提供してください",
+  "Invalid date format.": "無効な日付形式",
+  "Duration must be between 10 and 90 minutes.": "期間は10分から90分の間でなければなりません",
+  "Something went wrong!!!": "何かがうまくいきませんでした!!!",
+  "Something went wrong": "何かがうまくいきませんでした",
+  "No schedules found for this user.": "このユーザーのスケジュールは見つかりませんでした",
+  "Schedules retrieved successfully.": "スケジュールが正常に取得されました",
+  "No past schedules found for this user.": "このユーザーの過去のスケジュールは見つかりませんでした",
+  "Past schedules retrieved successfully.": "過去のスケジュールが正常に取得されました",
+  "Error": "エラー"
 }

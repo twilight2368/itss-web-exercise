@@ -23,6 +23,7 @@ import classNames from "classnames";
 import { useSelector } from "react-redux";
 
 import axios from "axios";
+import { toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -120,9 +121,17 @@ export default function MakeExerciseModal({ letParsedEvent }) {
         .then((response) => {
           //console.log(response.data);
           letParsedEvent(response.data.schedules);
+          toast.success(t(response.data.message));
         })
         .catch((error) => {
           console.log(error);
+          toast.error(
+            t(
+              error.response.data.message
+                ? error.response.data.message
+                : "Error"
+            )
+          );
         })
         .finally(() => {
           setLoading(false);

@@ -53,9 +53,10 @@ export default function LoginPage() {
         navigate("/home");
       })
       .catch((error) => {
-        console.log("====================================");
         console.log(error);
-        console.log("====================================");
+        toast.error(
+          t(error.response.data.message ? error.response.data.message : "Error")
+        );
       });
   };
 

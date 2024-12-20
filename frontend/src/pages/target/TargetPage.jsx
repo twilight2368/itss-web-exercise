@@ -97,10 +97,10 @@ const TargetCard = ({
 
       dispatch(setUserInfo(response.data.user));
 
-      toast.success(t("targetCard.success_message"));
+      toast.success(t(response.data.message));
     } catch (error) {
       console.error("Error updating target:", error);
-      toast.error(t("targetCard.error_message"));
+      toast.error(t(error.response.data.message || "Error"));
     }
   };
 

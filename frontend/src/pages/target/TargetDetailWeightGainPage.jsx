@@ -58,12 +58,12 @@ export default function TargetDetailWeightGainPage() {
       );
 
       if (response.status === 200) {
-        toast.success(t("gain_weight.update_success"));
+        toast.success(t(response.data.message));
         dispatch(setUserInfo(response.data.user));
       }
     } catch (error) {
       console.error("Error updating gain weight target:", error);
-      toast.error(t("gain_weight.update_error"));
+      toast.error(t(error.response.data.message || "Error"));
     }
   };
 

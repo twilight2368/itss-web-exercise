@@ -126,13 +126,17 @@ export default function SchedulePage() {
           .then((response) => {
             console.log(response);
             letParsedEvent(response.data.schedules);
-            toast.success("Calendar imported successfully");
+            toast.success(t(response.data.message));
+          })
+          .catch((error) => {
+            console.error("Error importing calendar", error);
+            toast.error(t(error.response.data.message || "Error"));
           })
           .finally(() => {
             setLoadingImport(false);
           });
       } else {
-        toast.error("User_id is not found");
+        toast.error(t("Error"));
         setLoadingImport(false);
       }
     };

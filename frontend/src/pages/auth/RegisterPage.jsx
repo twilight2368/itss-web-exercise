@@ -91,12 +91,12 @@ export default function RegisterPage() {
       return;
     }
     if (!checkEmail(formData.email)) {
-      toast.error(t(""));
+      toast.error(t("auth.email_format"));
       return;
     }
 
     if (!checkPassword(formData.password)) {
-      toast.error(t(""));
+      toast.error(t("auth.password_format"));
       return;
     }
 
@@ -117,13 +117,12 @@ export default function RegisterPage() {
         dispatch(setUserInfo(response.data.user));
         dispatch(setToken(response.data.jwt));
         setIsLogin(true);
-        toast.success(response.data.message);
+        toast.success(t(response.data.message));
         navigate("/home");
       })
       .catch((error) => {
-        console.log("====================================");
-        console.log(error);
-        console.log("====================================");
+       console.error(error)
+       toast.error(t(error.response.data.message ? error.response.data.message : "Error"));
       });
   };
 
