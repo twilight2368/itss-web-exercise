@@ -30,6 +30,8 @@ CONSTRAINTS:
 - Create at least 3 exercise sessions per week
 - Match exercise duration to available free time (5-90 minutes)
 - Avoid scheduling over existing commitments
+- Avoid midnight exercise sessions
+- Avoid scheduling exercise sessions on the same day
 
 EXAMPLE OUTPUT FORMAT:
 [
