@@ -495,7 +495,7 @@ router.post("/create-exercise", async (req, res, next) => {
 // }
 router.post("/generate-exercise", async (req, res, next) => {
   try {
-    const { calendarData } = req.body; // User's calendar input in JSON format
+    const { user_id, calendarData } = req.body; // User's calendar input in JSON format
 
     if (!calendarData || !Array.isArray(calendarData)) {
       return res.status(400).json({
@@ -515,9 +515,51 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
+    // console.log("====================================");
+    // console.log(schedule);
+    // console.log("====================================");
+
+    const formattedSchedule = schedule.map((item) => ({
+      user: user_id,
+      time_start: moment(
+        `${item.date} ${item.time_start}`,
+        "YYYY-MM-DD HH:mm"
+      ).toDate(),
+      time_end: moment(
+        `${item.date} ${item.time_end}`,
+        "YYYY-MM-DD HH:mm"
+      ).toDate(),
+      value: item.exercise,
+    }));
+
+    // console.log("====================================");
+    // console.log(formattedSchedule);
+    // console.log("====================================");
+
+    const resultSchedule = await ScheduleModel.insertMany(formattedSchedule);
+
+    // console.log("====================================");
+    // console.log(resultSchedule);
+    // console.log("====================================");
+
+    const newSchedules = await ScheduleModel.find({ user: user_id }).sort({
+      time_Start: 1,
+    });
+
+    // console.log("====================================");
+    // console.log(newSchedules);
+    // console.log("====================================");
+
+    if (!newSchedules.length) {
+      return res.status(500).json({
+        message: "Something went wrong",
+        schedules: [],
+      });
+    }
+
     res.json({
       message: "Successful",
-      data: schedule,
+      schedules: newSchedules,
     });
   } catch (error) {
     next(error);

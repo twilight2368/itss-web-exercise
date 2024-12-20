@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import * as XLSX from "xlsx";
+import { toast } from "react-toastify";
 
 const excelDateToJSDate = (excelDate) => {
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
@@ -31,6 +32,7 @@ const formatTo24Hour = (date) => {
 export default function SchedulePage() {
   const { t } = useTranslation();
   const [events, setEvents] = useState([]);
+  const [loadingImport, setLoadingImport] = useState(false);
   const user_id = useSelector((state) => state.user.user_id);
 
   useEffect(() => {
@@ -57,6 +59,7 @@ export default function SchedulePage() {
   const handlingImportXLSX = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
+    setLoadingImport(true);
 
     reader.onload = (event) => {
       const binaryStr = event.target.result;
@@ -110,7 +113,28 @@ export default function SchedulePage() {
         date: event.time_start.toLocaleDateString(),
       }));
 
-      console.log(formattedList);
+      // console.log("====================================");
+      // console.log(formattedList);
+      // console.log("====================================");
+
+      if (user_id) {
+        axios
+          .post("/api/generate-exercise", {
+            user_id: user_id,
+            calendarData: formattedList,
+          })
+          .then((response) => {
+            console.log(response);
+            letParsedEvent(response.data.schedules);
+            toast.success("Calendar imported successfully");
+          })
+          .finally(() => {
+            setLoadingImport(false);
+          });
+      } else {
+        toast.error("User_id is not found");
+        setLoadingImport(false);
+      }
     };
 
     reader.readAsArrayBuffer(file);
@@ -122,17 +146,30 @@ export default function SchedulePage() {
         <h1 className="text-3xl">{t("schedulePage.header")}</h1>
       </div>
       <div className="w-full h-16 px-6 mt-6 mb-12">
-        <div className="relative w-1/6 h-full hover:cursor-pointer">
-          <button className="p-4 w-full h-full font-bold bg-purple-50 shadow-md shadow-purple-300 rounded-md">
-            {t("schedulePage.import_calendar")}
-          </button>
-          <input
-            type="file"
-            accept=".xlsx,.xls"
-            className="absolute top-0 left-0 h-full w-full opacity-0 hover:cursor-pointer"
-            onChange={handlingImportXLSX}
-          />
-        </div>
+        {loadingImport ? (
+          <>
+            <div className="flex-col gap-4 w-full flex items-start justify-start">
+              <div className="w-16 h-16 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+                <div className="w-12 h-12 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {" "}
+            <div className="relative w-1/6 h-full hover:cursor-pointer">
+              <button className="p-4 w-full h-full font-bold bg-purple-50 shadow-md shadow-purple-300 rounded-md">
+                {t("schedulePage.import_calendar")}
+              </button>
+              <input
+                type="file"
+                accept=".xlsx,.xls"
+                className="absolute top-0 left-0 h-full w-full opacity-0 hover:cursor-pointer"
+                onChange={handlingImportXLSX}
+              />
+            </div>
+          </>
+        )}
       </div>
       <div className="w-full px-6 min-h-96 mb-12">
         <h2 className="mb-3 text-2xl text-center font-black pr-16">
