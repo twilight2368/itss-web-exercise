@@ -456,6 +456,11 @@ router.post("/create-exercise", async (req, res, next) => {
     // Calculate time_end based on duration
     const end = moment(start).add(duration_in_minutes, "minutes");
 
+    console.log("====================================");
+    console.log(start.toDate());
+    console.log(end.toDate());
+    console.log("====================================");
+
     // Create new schedule entry
     const newSchedule = new ScheduleModel({
       user: user_id,
@@ -503,9 +508,6 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    console.log("====================================");
-    console.log(calendarData);
-    console.log("====================================");
 
     const schedule = await callHuggingFaceAPI(calendarData);
 
@@ -524,11 +526,11 @@ router.post("/generate-exercise", async (req, res, next) => {
       const timeStart = moment(
         `${item.date} ${item.time_start}`,
         "YYYY-MM-DD HH:mm"
-      ).utcOffset(7);
+      );
       const timeEnd = moment(
         `${item.date} ${item.time_end}`,
         "YYYY-MM-DD HH:mm"
-      ).utcOffset(7);
+      );
 
       // Calculate duration in minutes
       const durationInMinutes = timeEnd.diff(timeStart, "minutes");
@@ -572,18 +574,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    // Adjust the retrieved times back to UTC+7 for display
-    const adjustedSchedules = newSchedules.map((schedule) => {
-      return {
-        ...schedule.toObject(),
-        time_start: moment(schedule.time_start).utcOffset(7).toDate(),
-        time_end: moment(schedule.time_end).utcOffset(7).toDate(),
-      };
-    });
-
     res.json({
       message: "Successful",
-      schedules: adjustedSchedules,
+      schedules: newSchedules,
     });
   } catch (error) {
     next(error);
