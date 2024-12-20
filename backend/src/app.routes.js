@@ -515,9 +515,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    // console.log("====================================");
-    // console.log(schedule);
-    // console.log("====================================");
+    console.log("====================================");
+    console.log(schedule);
+    console.log("====================================");
 
     const formattedSchedule = schedule.map((item) => ({
       user: user_id,

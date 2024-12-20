@@ -57,7 +57,6 @@ export default function CalendarDisplay({ events }) {
     locales: {
       vi,
       ja,
-      enUS,
     },
   });
 
