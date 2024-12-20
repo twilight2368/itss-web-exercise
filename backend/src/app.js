@@ -3,7 +3,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
-const router = require("./app.routes")
+const router = require("./app.routes");
+const path = require("path");
 
 app.use(express.json());
 app.use(express({ urlencoded: "extended" }));
@@ -19,8 +20,12 @@ app.use(
   })
 );
 
+
+
 app.use(morgan("dev"));
 app.use(morgan("combined"));
+
+app.use("/", express.static(path.join(__dirname, "dist")));
 
 app.use("/api", router);
 
