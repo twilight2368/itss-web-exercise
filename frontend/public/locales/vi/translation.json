@@ -39,11 +39,12 @@
     "register": "Đăng ký",
     "sentences1": "Bạn chưa có tài khoản?",
     "sentences2": "Bạn đã có tài khoản?",
-    "accept_terms": "Đồng ý với điều khoản sử dụng",
+    "accept_term": "Đồng ý với điều khoản sử dụng",
     "remember_me": "Ghi nhớ đăng nhập",
     "email_format": "Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại.",
     "password_format": "Mật khẩu không hợp lệ. Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường và một số. Mật khẩu phải dài tối thiểu 8 ký tự.",
-    "password_mismatch": "Mật khẩu không khớp. Vui lòng kiểm tra lại."
+    "password_mismatch": "Mật khẩu không khớp. Vui lòng kiểm tra lại.",
+    "accept_term_error": "Vui lòng chấp nhận điều khoản sử dụng."
   },
   "links": {
     "home": "Bảng điều khiển",

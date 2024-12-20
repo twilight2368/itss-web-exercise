@@ -87,7 +87,7 @@ export default function RegisterPage() {
     }
 
     if (!formData.acceptTerms) {
-      toast.error(t("auth.accept_terms"));
+      toast.error(t("auth.accept_term_error"));
       return;
     }
     if (!checkEmail(formData.email)) {
