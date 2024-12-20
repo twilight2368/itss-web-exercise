@@ -145,8 +145,8 @@ export default function DashboardPage() {
             );
           })}
         </div>
-        <div className=" w-1/2 pt-6 flex justify-center items-start">
-          <Paper elevation={3} className="w-5/6 aspect-square overflow-y-auto">
+        <div className="h-[600px] w-1/2 pt-6 flex justify-center items-start">
+          <Paper elevation={3} className="w-5/6 h-full aspect-square overflow-y-auto">
             <div
               className={classNames(
                 "w-full h-12 flex justify-center items-center border-b-[1px] ",
