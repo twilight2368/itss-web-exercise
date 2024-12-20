@@ -1,5 +1,11 @@
 # ITSS WEB-PROJECT
 
+## Deployment
+
+- [Smart Exercise Plan](https://itss-web-exercise.onrender.com)
+
+> **All design is made by Product Owner Team not me**
+
 ## Backend
 
 - Please read `.example.env` to config `.env` file
