@@ -503,9 +503,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    // console.log("====================================");
-    // console.log(calendarData);
-    // console.log("====================================");
+    console.log("====================================");
+    console.log(calendarData);
+    console.log("====================================");
 
     const schedule = await callHuggingFaceAPI(calendarData);
 
@@ -515,9 +515,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
-    // console.log("====================================");
-    // console.log(schedule);
-    // console.log("====================================");
+    console.log("====================================");
+    console.log(schedule);
+    console.log("====================================");
 
     const formattedSchedule = schedule.map((item) => {
       // Parse and adjust time with UTC+7
@@ -532,6 +532,11 @@ router.post("/generate-exercise", async (req, res, next) => {
 
       // Calculate duration in minutes
       const durationInMinutes = timeEnd.diff(timeStart, "minutes");
+
+      console.log("====================================");
+      console.log(timeStart.toDate());
+      console.log(timeEnd.toDate());
+      console.log("====================================");
 
       return {
         user: user_id,
@@ -556,9 +561,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       time_Start: 1,
     });
 
-    // console.log("====================================");
-    // console.log(newSchedules);
-    // console.log("====================================");
+    console.log("====================================");
+    console.log(newSchedules);
+    console.log("====================================");
 
     if (!newSchedules.length) {
       return res.status(500).json({
@@ -567,9 +572,18 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
+    // Adjust the retrieved times back to UTC+7 for display
+    const adjustedSchedules = newSchedules.map((schedule) => {
+      return {
+        ...schedule.toObject(),
+        time_start: moment(schedule.time_start).utcOffset(7).toDate(),
+        time_end: moment(schedule.time_end).utcOffset(7).toDate(),
+      };
+    });
+
     res.json({
       message: "Successful",
-      schedules: newSchedules,
+      schedules: adjustedSchedules,
     });
   } catch (error) {
     next(error);
