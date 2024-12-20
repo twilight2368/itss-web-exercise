@@ -30,8 +30,12 @@ CONSTRAINTS:
 - Create at least 3 exercise sessions per week
 - Match exercise duration to available free time (5-90 minutes)
 - Avoid scheduling over existing commitments
-- Avoid midnight exercise sessions
+- Avoid midnight exercise sessions (between 00:00 and 06:00).
 - Avoid scheduling exercise sessions on the same day
+
+NOTES:
+- Assume all times are in UTC+7 (Asia/Bangkok).
+- Avoid midnight sessions (between 00:00 and 06:00 UTC+7).
 
 EXAMPLE OUTPUT FORMAT:
 [
