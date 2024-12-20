@@ -95,8 +95,7 @@ export default function MakeExerciseModal({ letParsedEvent }) {
     setMinValue(0);
   };
   const { t } = useTranslation();
-  const dateNow = new Date();
-  const [timeStart, setTimeStart] = useState(moment(dateNow));
+  const [timeStart, setTimeStart] = useState(null);
 
   const user_id = useSelector((state) => state.user.user_id);
 
@@ -161,7 +160,6 @@ export default function MakeExerciseModal({ letParsedEvent }) {
                   <DemoContainer components={["DateTimePicker"]}>
                     <DateTimePicker
                       label={t("modalExercise.start_time")}
-                      value={timeStart}
                       onChange={(newValue) => {
                         setTimeStart(newValue);
                       }}

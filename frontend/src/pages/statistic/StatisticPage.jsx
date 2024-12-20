@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { PieChart } from "@mui/x-charts/PieChart";
@@ -20,22 +20,24 @@ import {
   CalculatePercentageEvaluate,
   CalculatePercentageWeight,
 } from "../../utils/CalculatePercentage";
+import axios from "axios";
 
-const exerciseImages = [
-  { image: Image1, value: "badminton" },
-  { image: Image2, value: "basketball" },
-  { image: Image3, value: "climbing" },
-  { image: Image4, value: "dancing" },
-  { image: Image5, value: "jumprope" },
-  { image: Image6, value: "running" },
-  { image: Image7, value: "soccer" },
-  { image: Image8, value: "swimming" },
-  { image: Image9, value: "yoga" },
-];
+const exerciseImages = {
+  badminton: Image1,
+  basketball: Image2,
+  climbing: Image3,
+  dancing: Image4,
+  jumprope: Image5,
+  running: Image6,
+  soccer: Image7,
+  swimming: Image8,
+  yoga: Image9,
+};
 
 export default function StatisticPage() {
   const { t } = useTranslation();
   const user_info = useSelector((state) => state.user.user_info);
+  const [history, setHistory] = useState();
   // Carousel settings
   const carouselSettings = {
     dots: true,
@@ -94,6 +96,19 @@ export default function StatisticPage() {
       label: t("statisticsPage.not_completed"),
     },
   ];
+
+  const user_id = useSelector((state) => state.user.user_id);
+
+  useEffect(() => {
+    if (user_id !== "") {
+      axios.get(`/api/schedule-history/${user_id}`).then((response) => {
+        // console.log(response.data);
+        console.log(response.data.schedules);
+
+        setHistory(response.data.schedules);
+      }); // Adjust to your API endpoint
+    }
+  }, [t]);
   return (
     <div className="min-h-screen p-6">
       <div className="w-full h-16 border-b-2 mb-24">
@@ -161,21 +176,32 @@ export default function StatisticPage() {
             {t("statisticsPage.exercise_history")}
           </div>
           <div className="px-6 grid grid-cols-9 gap-0">
-            {exerciseImages.map((image, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <img
-                  src={image.image}
-                  alt={image.value}
-                  className="w-24 h-24 object-contain mb-2"
-                />
-              </div>
-            ))}
+            {history ? (
+              <>
+                {history.map((item) => {
+                  return (
+                    <>
+                      <div className="w-full h-full flex justify-center items-center">
+                        <img
+                          src={exerciseImages[item.value]}
+                          alt="image"
+                          className="w-24 aspect-square"
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className=" border-2 w-full rounded-md p-8 min-h-60 ">
           <div className=" font-black text-2xl mb-12">
             {t("statisticsPage.review")}
           </div>
+          <div className="w-full "></div>
         </div>
       </div>
     </div>
