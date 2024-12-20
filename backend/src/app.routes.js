@@ -521,12 +521,14 @@ router.post("/generate-exercise", async (req, res, next) => {
 
     const formattedSchedule = schedule.map((item) => {
       // Parse and adjust time with UTC+7
-      const timeStart = moment
-        .tz(`${item.date} ${item.time_start}`, "YYYY-MM-DD HH:mm")
-        .utcOffset(7);
-      const timeEnd = moment
-        .tz(`${item.date} ${item.time_end}`, "YYYY-MM-DD HH:mm")
-        .utcOffset(7);
+      const timeStart = moment(
+        `${item.date} ${item.time_start}`,
+        "YYYY-MM-DD HH:mm"
+      ).utcOffset(7);
+      const timeEnd = moment(
+        `${item.date} ${item.time_end}`,
+        "YYYY-MM-DD HH:mm"
+      ).utcOffset(7);
 
       // Calculate duration in minutes
       const durationInMinutes = timeEnd.diff(timeStart, "minutes");
