@@ -438,7 +438,7 @@ router.post("/create-exercise", async (req, res, next) => {
 
     // Validate input
     if (!user_id || !time_start || !duration_in_minutes || !value) {
-      return res.status(400).json({ message: "All fields are required." });
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     // Parse and validate time_start
