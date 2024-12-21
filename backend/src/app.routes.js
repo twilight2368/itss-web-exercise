@@ -458,8 +458,11 @@ router.post("/create-exercise", async (req, res, next) => {
     const end = moment(start).add(duration_in_minutes, "minutes");
 
     console.log("====================================");
+    console.log(clc.yellow("New exercise schedule"));
+    console.log(value);
     console.log(start.toDate());
     console.log(end.toDate());
+    console.log(duration_in_minutes);
     console.log("====================================");
 
     // Create new schedule entry
