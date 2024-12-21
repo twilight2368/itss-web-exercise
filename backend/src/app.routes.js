@@ -509,6 +509,11 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
+    console.log(clc.green("User calender import"));
+    console.log("====================================");
+    console.log(calendarData);
+    console.log("====================================");
+
     const schedule = await callHuggingFaceAPI(calendarData);
 
     if (!schedule) {
@@ -517,6 +522,7 @@ router.post("/generate-exercise", async (req, res, next) => {
       });
     }
 
+    console.log(clc.green("Schedule from Hugging Face"));
     console.log("====================================");
     console.log(schedule);
     console.log("====================================");
@@ -545,9 +551,10 @@ router.post("/generate-exercise", async (req, res, next) => {
       };
     });
 
-    // console.log("====================================");
-    // console.log(formattedSchedule);
-    // console.log("====================================");
+    console.log(clc.blue("Formatted schedule"));
+    console.log("====================================");
+    console.log(formattedSchedule);
+    console.log("====================================");
 
     const resultSchedule = await ScheduleModel.insertMany(formattedSchedule);
 
@@ -559,9 +566,9 @@ router.post("/generate-exercise", async (req, res, next) => {
       time_Start: 1,
     });
 
-    console.log("====================================");
-    console.log(newSchedules);
-    console.log("====================================");
+    // console.log("====================================");
+    // console.log(newSchedules);
+    // console.log("====================================");
 
     if (!newSchedules.length) {
       return res.status(500).json({
